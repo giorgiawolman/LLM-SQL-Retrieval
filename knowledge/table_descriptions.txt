@@ -1,8 +1,8 @@
-Table: Labour
-Description: This table contains information about workers involved in the construction project. Each row records a unique labourer or role, their hourly rate, number of hours worked, and the total labour cost calculated from rate and hours.
+Table: acoustic_samples
+Description: This table contains simulated acoustic performance data for residential and mixed-use environments. Each row represents a unique apartment configuration with corresponding acoustic conditions. The data includes spatial and material parameters (zone type, apartment type, wall and window materials, room volume), environmental inputs (ambient noise level), and calculated outputs such as reverberation time (RT60), sound pressure level (SPL), and a normalized comfort score ranging from 0 to 1. This table is used for predictive modeling, compliance checking, and acoustic design optimization.
 
-Table: Material
-Description: This table tracks the materials used in construction. It includes the cost per unit of material, quantity used, and total material cost.
+Table: material_acoustic_knowledge
+Description: This table contains reference data for construction materials and their acoustic properties. It includes sound transmission loss (STL) values, absorption coefficients, scattering coefficients, and descriptions of typical use cases for each material. Materials are categorized (e.g., Wall, Window) to support design decisions and acoustic simulations in architectural contexts.
 
-Table: Equipment
-Description: This table provides data about the equipment rented or used during construction. It captures the daily rental cost and usage duration.
+Table: compliance_thresholds
+Description: This table defines acoustic compliance thresholds based on use-case contexts (e.g., Living, Sleeping, Spa). It includes maximum recommended indoor sound levels (LAeq) and reverberation time limits (RT60) as per WHO and ISO guidelines. This data is used to evaluate whether a given acoustic environment meets acceptable standards for occupant comfort.

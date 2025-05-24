@@ -774,7 +774,7 @@
     ]
   },
   {
-    "name": "material_acoustic_knowledge",
+    "name": "material_acoustic_knowledge_base",
     "content": "This table contains reference data for construction materials and their acoustic properties. It includes sound transmission loss (STL) values, absorption coefficients, scattering coefficients, and descriptions of typical use cases for each material. Materials are categorized (e.g., Wall, Window) to support design decisions and acoustic simulations in architectural contexts.",
     "vector": [
       0.042022705078125,

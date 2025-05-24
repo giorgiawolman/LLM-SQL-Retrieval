@@ -3,7 +3,7 @@ from openai import OpenAI
 from server.keys import *
 
 # Mode
-mode = "local" # "local" or "openai" or "cloudflare"
+mode = "cloudflare" # "local" or "openai" or "cloudflare"
 
 # API
 local_client = OpenAI(base_url="http://localhost:1234/v1", api_key="lm-studio")

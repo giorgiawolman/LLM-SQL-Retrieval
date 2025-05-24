@@ -1,132 +1,109 @@
-from server.config import *
+from server.config import client, completion_model
 import re
 
-# Create a SQL query from user question
+# 🔹 Generate SQL query from user question and schema
 def generate_sql_query(dB_context: str, retrieved_descriptions: str, user_question: str) -> str:
     response = client.chat.completions.create(
         model=completion_model,
         messages=[
             {
                 "role": "system",
-                "content":
-                       f"""
-                You are a SQLite expert.
-                The database contains multiple tables, each corresponding to a different aspect of building cost. 
-                Each table row represents an individual instance of a building element of that type.
+                "content": f"""
+You are an SQLite expert helping with acoustic comfort evaluation.
+You generate SQL queries for a database that includes:
 
-                # Context Information #
-                ## Database Schema: ## {dB_context}
-                ## Table Descriptions: ## {retrieved_descriptions}
+- Acoustic metrics by apartment and material
+- Material acoustic properties (e.g. STL, absorption)
+- WHO/ISO compliance thresholds
+- Pretrained comfort scores and simulation results
 
-                # Instructions #
-                ## Reasoning Steps: ##
-                - Carefully analyze the users question.
-                - Cross-reference the question with the provided database schema and table descriptions.
-                - Think about which data a query to the database should fetch. Only data related to the question should be fetched.
-                - Pay special atenttion to the names of the tables and properties of the schema. Your query must use keywords that match perfectly.
-                - Create a valid and relevant SQL query, using only the table names and properties that are present in the schema.
+# Schema #
+{dB_context}
 
-                ## Output Format: ##
-                - Output only the SQL query.
-                - Do not use formatting characters like '```sql' or other extra text.
-                - If the database doesnt have enough information to answer the question, simply output "No information".
-                """
+# Table Descriptions #
+{retrieved_descriptions}
+
+# Instructions #
+- Carefully interpret the user’s question
+- Use only exact table and column names found in the schema
+- Return a single SQL query (no explanations, no formatting)
+- If you can’t answer, return: No information
+"""
             },
             {
                 "role": "user",
-                "content": f"# User question # {user_question}",
-            },
-        ],
+                "content": f"User Question: {user_question}"
+            }
+        ]
     )
-    return response.choices[0].message.content
+    return response.choices[0].message.content.strip()
 
-# Create a natural language response out of the SQL query and result
+# 🔹 Explain SQL result in context of acoustic comfort
 def build_answer(sql_query: str, sql_result: str, user_question: str) -> str:
     response = client.chat.completions.create(
         model=completion_model,
         messages=[
             {
                 "role": "system",
-                "content":
-                       f"""
-                        You have to answer a user question according to the SQL query and its result. Your goal is to answer in a concise and informative way, specifying the properties and tables that were relevant to create the answer.
-                       
-                        ### EXAMPLE ###
-                        User Question: What is the area of the largest slab?  
-                        SQL Query: SELECT GlobalId, Dimensions_Area FROM IfcSlab ORDER BY Dimensions_Area DESC LIMIT 1;  
-                        SQL Result: [('3qq_RRlZrFqhCIHFKokT7x', 207.1385920365226)]  
-                        Answer: I looked at the Dimensions_Area property of IfcSlab elements and found that the area of the largest slab (GlobalID: '3qq_RRlZrFqhCIHFKokT7x') is 207.13 m².
-                """,
+                "content": f"""
+You are an expert in architectural acoustics and SQL.
+You are helping interpret SQL results related to acoustic comfort, material performance, and compliance.
+
+# Instructions #
+- Use the query and result to explain the answer
+- Reference relevant fields or material properties
+- Be clear, concise, and useful to an acoustic consultant
+"""
             },
             {
                 "role": "user",
-                "content": f""" 
-                User question: {user_question}
-                SQL Query: {sql_query}
-                SQL Result: {sql_result}
-                Answer:
-                """,
-            },
-        ],
+                "content": f"""
+User Question: {user_question}
+SQL Query: {sql_query}
+SQL Result: {sql_result}
+"""
+            }
+        ]
     )
-    return response.choices[0].message.content
+    return response.choices[0].message.content.strip()
 
-# Fix an SQL query that has failed
-def fix_sql_query(dB_context: str, user_question: str, atempted_queries: str, exceptions: str) -> str:
-
-    attemptted_entries = []
-    for query, exception in zip(atempted_queries, exceptions):
-        attemptted_entries.append(f"#Previously attempted query#:{query}. #SQL Exception error#:{exception}")
-
-    queries_exceptions_content = "\n".join(attemptted_entries)
+# 🔹 Fix SQL query that failed
+def fix_sql_query(dB_context: str, user_question: str, attempted_queries: list, exceptions: list) -> str:
+    error_log = "\n".join([
+        f"# Query: {q}\n# Error: {e}" for q, e in zip(attempted_queries, exceptions)
+    ])
 
     response = client.chat.completions.create(
         model=completion_model,
         messages=[
             {
                 "role": "system",
-                "content":
-                       f"""
-                You are an SQL database expert tasked with correcting a SQL query. A previous attempt to run a query
-                did not yield the correct results, either due to errors in execution or because the result returned was empty
-                or unexpected. Your role is to analyze the error based on the provided database schema and the details of
-                the failed execution, and then provide a corrected version of the SQL query.
-                The new query should provide an answer to the question! Dont create queries that do not relate to the question!
-                Pay special atenttion to the names of the tables and properties. Your query must use keywords that match perfectly.
+                "content": f"""
+You are an SQL query expert for an architectural acoustics database.
+You will correct failed queries by analyzing errors and the table schema.
 
-                # Context Information #
-                - The database contains multiple tables, each corresponding to a different building element type. 
-                - Each table row represents an individual instance of a building element of that type.
-                ## Database Schema: ## {dB_context}
+# Schema #
+{dB_context}
 
-                # Instructions #
-                1. Write down in steps why the sql queries might be failling and what could be changed to avoid it. Answer this questions:
-                    I. Is the table being fetched the most apropriate to the user question, or could there be another table that might be more suitable?
-                    II. Could there be another property in the schema of database for that table that could provide the right answer?
-                2. Given your reasoning, write a new query taking into account the various # Failed queries and exceptions # tried before.
-                2. Never output the exact same query. You should try something new given the schema of the database.
-                3. Your output should come in this format: #Reasoning#: your reasoning. #NEW QUERY#: the new query.
-                
-                Do not use formatting characters, write only the query string.
-                No other text after the query. Do not invent table names or properties. Use only the ones shown to you in the schema.
-                """,
+# Instructions #
+- Analyze why previous queries failed (wrong field, table, etc.)
+- Propose a new working SQL query using only schema fields
+- Do not make up names
+- Return format: #NEW QUERY#: corrected SQL query
+"""
             },
             {
                 "role": "user",
-                "content": f""" 
-                #User question#
-                {user_question}
-                #Failed queries and exceptions#
-                {queries_exceptions_content}
-                """,
-            },
-        ],
+                "content": f"""
+User Question: {user_question}
+
+# Failed Queries and Errors #
+{error_log}
+"""
+            }
+        ]
     )
-    
-    response_content = response.choices[0].message.content
-    #print(response_content)
-    match = re.search(r'#NEW QUERY#:(.*)', response_content)
-    if match:
-        return match.group(1).strip()
-    else:
-        return None
+
+    content = response.choices[0].message.content.strip()
+    match = re.search(r'#NEW QUERY#:(.*)', content)
+    return match.group(1).strip() if match else None

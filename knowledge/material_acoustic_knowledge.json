@@ -1,0 +1,194 @@
+[
+    {
+        "material": "Concrete (20cm)",
+        "category": "Wall",
+        "STL_dB": 50,
+        "Absorption_Coefficient_500Hz": 0.02,
+        "Scattering_Coefficient": 0.05,
+        "Typical_Use": "Structural external walls"
+    },
+    {
+        "material": "Brick (20cm)",
+        "category": "Wall",
+        "STL_dB": 45,
+        "Absorption_Coefficient_500Hz": 0.03,
+        "Scattering_Coefficient": 0.06,
+        "Typical_Use": "Low-rise residential walls"
+    },
+    {
+        "material": "Wood Panel (5cm)",
+        "category": "Wall",
+        "STL_dB": 25,
+        "Absorption_Coefficient_500Hz": 0.25,
+        "Scattering_Coefficient": 0.2,
+        "Typical_Use": "Interior timber cladding"
+    },
+    {
+        "material": "Gypsum Board (2cm)",
+        "category": "Wall",
+        "STL_dB": 20,
+        "Absorption_Coefficient_500Hz": 0.4,
+        "Scattering_Coefficient": 0.3,
+        "Typical_Use": "Interior drywall systems"
+    },
+    {
+        "material": "Double Glazing",
+        "category": "Window",
+        "STL_dB": 30,
+        "Absorption_Coefficient_500Hz": 0.2,
+        "Scattering_Coefficient": 0.1,
+        "Typical_Use": "Standard residential glazing"
+    },
+    {
+        "material": "Triple Glazing",
+        "category": "Window",
+        "STL_dB": 40,
+        "Absorption_Coefficient_500Hz": 0.3,
+        "Scattering_Coefficient": 0.15,
+        "Typical_Use": "High-performance facade glazing"
+    },
+    {
+        "material": "Green Wall",
+        "category": "Vegetation",
+        "STL_dB": 10,
+        "Absorption_Coefficient_500Hz": 0.5,
+        "Scattering_Coefficient": 0.35,
+        "Typical_Use": "Eco acoustic facade buffer"
+    },
+    {
+        "material": "Acoustic Foam Panel",
+        "category": "Insulation",
+        "STL_dB": 25,
+        "Absorption_Coefficient_500Hz": 0.95,
+        "Scattering_Coefficient": 0.5,
+        "Typical_Use": "Studio and vocal booth treatment"
+    },
+    {
+        "material": "Ceiling Tile (Acoustic)",
+        "category": "Ceiling",
+        "STL_dB": 35,
+        "Absorption_Coefficient_500Hz": 0.75,
+        "Scattering_Coefficient": 0.45,
+        "Typical_Use": "Offices and classrooms"
+    },
+    {
+        "material": "Carpet on Concrete",
+        "category": "Floor",
+        "STL_dB": 25,
+        "Absorption_Coefficient_500Hz": 0.6,
+        "Scattering_Coefficient": 0.35,
+        "Typical_Use": "Residential and hospitality flooring"
+    },
+    {
+        "material": "Laminated Gypsum Board",
+        "category": "Wall",
+        "STL_dB": 22,
+        "Absorption_Coefficient_500Hz": 0.35,
+        "Scattering_Coefficient": 0.3,
+        "Typical_Use": "Interior acoustic drywall"
+    },
+    {
+        "material": "Perforated Timber Panel",
+        "category": "Wall",
+        "STL_dB": 28,
+        "Absorption_Coefficient_500Hz": 0.55,
+        "Scattering_Coefficient": 0.4,
+        "Typical_Use": "Aesthetic + absorptive cladding"
+    },
+    {
+        "material": "Laminated Acoustic Glass",
+        "category": "Window",
+        "STL_dB": 42,
+        "Absorption_Coefficient_500Hz": 0.25,
+        "Scattering_Coefficient": 0.15,
+        "Typical_Use": "Facade glazing with damping layer"
+    },
+    {
+        "material": "Recycled Cotton Panel",
+        "category": "Insulation",
+        "STL_dB": 20,
+        "Absorption_Coefficient_500Hz": 0.85,
+        "Scattering_Coefficient": 0.45,
+        "Typical_Use": "Eco-friendly cavity fill"
+    },
+    {
+        "material": "Hemp Acoustic Mat",
+        "category": "Insulation",
+        "STL_dB": 18,
+        "Absorption_Coefficient_500Hz": 0.8,
+        "Scattering_Coefficient": 0.4,
+        "Typical_Use": "Natural fiber wall insulation"
+    },
+    {
+        "material": "Acoustic Baffle (Fabric)",
+        "category": "Ceiling",
+        "STL_dB": 30,
+        "Absorption_Coefficient_500Hz": 0.7,
+        "Scattering_Coefficient": 0.4,
+        "Typical_Use": "Suspended treatment in open plans"
+    },
+    {
+        "material": "Slatted Wood Ceiling",
+        "category": "Ceiling",
+        "STL_dB": 32,
+        "Absorption_Coefficient_500Hz": 0.6,
+        "Scattering_Coefficient": 0.5,
+        "Typical_Use": "Architectural noise diffusion"
+    },
+    {
+        "material": "Cork Floor Tile",
+        "category": "Floor",
+        "STL_dB": 20,
+        "Absorption_Coefficient_500Hz": 0.5,
+        "Scattering_Coefficient": 0.35,
+        "Typical_Use": "Quiet residential flooring"
+    },
+    {
+        "material": "Floating Laminate Floor",
+        "category": "Floor",
+        "STL_dB": 28,
+        "Absorption_Coefficient_500Hz": 0.45,
+        "Scattering_Coefficient": 0.3,
+        "Typical_Use": "Lightweight acoustic floor system"
+    },
+    {
+        "material": "Living Roof (Sedum)",
+        "category": "Vegetation",
+        "STL_dB": 18,
+        "Absorption_Coefficient_500Hz": 0.6,
+        "Scattering_Coefficient": 0.35,
+        "Typical_Use": "Green roof with noise reduction"
+    },
+    {
+        "material": "Reinforced Concrete Slab",
+        "category": "Structure",
+        "STL_dB": 55,
+        "Absorption_Coefficient_500Hz": 0.01,
+        "Scattering_Coefficient": 0.05,
+        "Typical_Use": "Load-bearing floor or roof structure"
+    },
+    {
+        "material": "Steel Frame (Filled)",
+        "category": "Structure",
+        "STL_dB": 48,
+        "Absorption_Coefficient_500Hz": 0.03,
+        "Scattering_Coefficient": 0.08,
+        "Typical_Use": "Framing system with acoustic core"
+    },
+    {
+        "material": "Fabric Wall Finish",
+        "category": "Finish",
+        "STL_dB": 18,
+        "Absorption_Coefficient_500Hz": 0.65,
+        "Scattering_Coefficient": 0.3,
+        "Typical_Use": "Soft finish for reducing reflections"
+    },
+    {
+        "material": "Textured Plaster",
+        "category": "Finish",
+        "STL_dB": 20,
+        "Absorption_Coefficient_500Hz": 0.15,
+        "Scattering_Coefficient": 0.4,
+        "Typical_Use": "Interior finish with mild absorption"
+    }
+]
