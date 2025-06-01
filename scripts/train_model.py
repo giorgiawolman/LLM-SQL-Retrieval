@@ -7,35 +7,38 @@ from sklearn.pipeline import Pipeline
 from sklearn.compose import ColumnTransformer
 from sklearn.preprocessing import OneHotEncoder, StandardScaler
 
-# Load the dataset
-df = pd.read_csv("sql/updated_acoustic_dataset_2000_samples.csv")
+# === 1. Load Cleaned Dataset ===
+df = pd.read_csv("sql/cleaned_dataset.csv")  # Make sure the path is correct
 
-# Define features and target variable
-X = df.drop(columns=["comfort_score"])
-y = df["comfort_score"]
+# === 2. Define Target and Features ===
+y = df["Comfort_Index"]
+X = df.drop(columns=["Comfort_Index", "Material"])  # Drop target and unused
 
-# Define column types
-categorical = ["ZONE", "Apt Type", "Wall Material", "Window Material"]
-numeric = ["dBa (Laeq)", "Walls", "Volume", "Height", "STL", "Absorption", "RT60", "SPL"]
+# === 3. Specify Column Types ===
+categorical = ["Zone", "Apartment_Type", "Element"]
+numeric = [
+    "Laeq", "SPL", "RT60(seconds)", "RT60 (material ac)",
+    "Surface_Area(m)", "Height", "Absortion_Coefficient", "Facade_Dampening(Score)"
+]
 
-# Define preprocessing steps
+# === 4. Build Preprocessing Pipeline ===
 preprocessor = ColumnTransformer([
     ("cat", OneHotEncoder(handle_unknown="ignore"), categorical),
     ("num", StandardScaler(), numeric)
 ])
 
-# Define the full pipeline (preprocessing + model)
+# === 5. Combine Preprocessing with Model ===
 pipeline = Pipeline([
     ("preprocessor", preprocessor),
     ("regressor", RandomForestRegressor(n_estimators=100, random_state=42))
 ])
 
-# Split the dataset and train the model
+# === 6. Split Data and Train ===
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 pipeline.fit(X_train, y_train)
 
-# Save the trained model to disk
+# === 7. Save Trained Model ===
 os.makedirs("model", exist_ok=True)
 joblib.dump(pipeline, "model/acoustic_comfort_score_model.pkl")
 
-print("Model trained and saved to model/acoustic_comfort_score_model.pkl")
+print("✅ Model trained and saved to model/acoustic_comfort_score_model.pkl")

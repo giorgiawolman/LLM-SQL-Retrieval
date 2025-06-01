@@ -1,194 +1,267 @@
 [
-    {
-        "material": "Concrete (20cm)",
-        "category": "Wall",
-        "STL_dB": 50,
-        "Absorption_Coefficient_500Hz": 0.02,
-        "Scattering_Coefficient": 0.05,
-        "Typical_Use": "Structural external walls"
-    },
-    {
-        "material": "Brick (20cm)",
-        "category": "Wall",
-        "STL_dB": 45,
-        "Absorption_Coefficient_500Hz": 0.03,
-        "Scattering_Coefficient": 0.06,
-        "Typical_Use": "Low-rise residential walls"
-    },
-    {
-        "material": "Wood Panel (5cm)",
-        "category": "Wall",
-        "STL_dB": 25,
-        "Absorption_Coefficient_500Hz": 0.25,
-        "Scattering_Coefficient": 0.2,
-        "Typical_Use": "Interior timber cladding"
-    },
-    {
-        "material": "Gypsum Board (2cm)",
-        "category": "Wall",
-        "STL_dB": 20,
-        "Absorption_Coefficient_500Hz": 0.4,
-        "Scattering_Coefficient": 0.3,
-        "Typical_Use": "Interior drywall systems"
-    },
-    {
-        "material": "Double Glazing",
-        "category": "Window",
-        "STL_dB": 30,
-        "Absorption_Coefficient_500Hz": 0.2,
-        "Scattering_Coefficient": 0.1,
-        "Typical_Use": "Standard residential glazing"
-    },
-    {
-        "material": "Triple Glazing",
-        "category": "Window",
-        "STL_dB": 40,
-        "Absorption_Coefficient_500Hz": 0.3,
-        "Scattering_Coefficient": 0.15,
-        "Typical_Use": "High-performance facade glazing"
-    },
-    {
-        "material": "Green Wall",
-        "category": "Vegetation",
-        "STL_dB": 10,
-        "Absorption_Coefficient_500Hz": 0.5,
-        "Scattering_Coefficient": 0.35,
-        "Typical_Use": "Eco acoustic facade buffer"
-    },
-    {
-        "material": "Acoustic Foam Panel",
-        "category": "Insulation",
-        "STL_dB": 25,
-        "Absorption_Coefficient_500Hz": 0.95,
-        "Scattering_Coefficient": 0.5,
-        "Typical_Use": "Studio and vocal booth treatment"
-    },
-    {
-        "material": "Ceiling Tile (Acoustic)",
-        "category": "Ceiling",
-        "STL_dB": 35,
-        "Absorption_Coefficient_500Hz": 0.75,
-        "Scattering_Coefficient": 0.45,
-        "Typical_Use": "Offices and classrooms"
-    },
-    {
-        "material": "Carpet on Concrete",
-        "category": "Floor",
-        "STL_dB": 25,
-        "Absorption_Coefficient_500Hz": 0.6,
-        "Scattering_Coefficient": 0.35,
-        "Typical_Use": "Residential and hospitality flooring"
-    },
-    {
-        "material": "Laminated Gypsum Board",
-        "category": "Wall",
-        "STL_dB": 22,
-        "Absorption_Coefficient_500Hz": 0.35,
-        "Scattering_Coefficient": 0.3,
-        "Typical_Use": "Interior acoustic drywall"
-    },
-    {
-        "material": "Perforated Timber Panel",
-        "category": "Wall",
-        "STL_dB": 28,
-        "Absorption_Coefficient_500Hz": 0.55,
-        "Scattering_Coefficient": 0.4,
-        "Typical_Use": "Aesthetic + absorptive cladding"
-    },
-    {
-        "material": "Laminated Acoustic Glass",
-        "category": "Window",
-        "STL_dB": 42,
-        "Absorption_Coefficient_500Hz": 0.25,
-        "Scattering_Coefficient": 0.15,
-        "Typical_Use": "Facade glazing with damping layer"
-    },
-    {
-        "material": "Recycled Cotton Panel",
-        "category": "Insulation",
-        "STL_dB": 20,
-        "Absorption_Coefficient_500Hz": 0.85,
-        "Scattering_Coefficient": 0.45,
-        "Typical_Use": "Eco-friendly cavity fill"
-    },
-    {
-        "material": "Hemp Acoustic Mat",
-        "category": "Insulation",
-        "STL_dB": 18,
-        "Absorption_Coefficient_500Hz": 0.8,
-        "Scattering_Coefficient": 0.4,
-        "Typical_Use": "Natural fiber wall insulation"
-    },
-    {
-        "material": "Acoustic Baffle (Fabric)",
-        "category": "Ceiling",
-        "STL_dB": 30,
-        "Absorption_Coefficient_500Hz": 0.7,
-        "Scattering_Coefficient": 0.4,
-        "Typical_Use": "Suspended treatment in open plans"
-    },
-    {
-        "material": "Slatted Wood Ceiling",
-        "category": "Ceiling",
-        "STL_dB": 32,
-        "Absorption_Coefficient_500Hz": 0.6,
-        "Scattering_Coefficient": 0.5,
-        "Typical_Use": "Architectural noise diffusion"
-    },
-    {
-        "material": "Cork Floor Tile",
-        "category": "Floor",
-        "STL_dB": 20,
-        "Absorption_Coefficient_500Hz": 0.5,
-        "Scattering_Coefficient": 0.35,
-        "Typical_Use": "Quiet residential flooring"
-    },
-    {
-        "material": "Floating Laminate Floor",
-        "category": "Floor",
-        "STL_dB": 28,
-        "Absorption_Coefficient_500Hz": 0.45,
-        "Scattering_Coefficient": 0.3,
-        "Typical_Use": "Lightweight acoustic floor system"
-    },
-    {
-        "material": "Living Roof (Sedum)",
-        "category": "Vegetation",
-        "STL_dB": 18,
-        "Absorption_Coefficient_500Hz": 0.6,
-        "Scattering_Coefficient": 0.35,
-        "Typical_Use": "Green roof with noise reduction"
-    },
-    {
-        "material": "Reinforced Concrete Slab",
-        "category": "Structure",
-        "STL_dB": 55,
-        "Absorption_Coefficient_500Hz": 0.01,
-        "Scattering_Coefficient": 0.05,
-        "Typical_Use": "Load-bearing floor or roof structure"
-    },
-    {
-        "material": "Steel Frame (Filled)",
-        "category": "Structure",
-        "STL_dB": 48,
-        "Absorption_Coefficient_500Hz": 0.03,
-        "Scattering_Coefficient": 0.08,
-        "Typical_Use": "Framing system with acoustic core"
-    },
-    {
-        "material": "Fabric Wall Finish",
-        "category": "Finish",
-        "STL_dB": 18,
-        "Absorption_Coefficient_500Hz": 0.65,
-        "Scattering_Coefficient": 0.3,
-        "Typical_Use": "Soft finish for reducing reflections"
-    },
-    {
-        "material": "Textured Plaster",
-        "category": "Finish",
-        "STL_dB": 20,
-        "Absorption_Coefficient_500Hz": 0.15,
-        "Scattering_Coefficient": 0.4,
-        "Typical_Use": "Interior finish with mild absorption"
-    }
+  {
+    "material": "Painted Brick",
+    "category": "wall",
+    "Absorption_Coefficient_500Hz": 0.01
+  },
+  {
+    "material": "Unpainted Brick",
+    "category": "wall",
+    "Absorption_Coefficient_500Hz": 0.03
+  },
+  {
+    "material": "Concrete Block (Coarse)",
+    "category": "wall",
+    "Absorption_Coefficient_500Hz": 0.36
+  },
+  {
+    "material": "Concrete Block (Painted)",
+    "category": "wall",
+    "Absorption_Coefficient_500Hz": 0.46
+  },
+  {
+    "material": "Gypsum Board",
+    "category": "wall",
+    "Absorption_Coefficient_500Hz": 0.05
+  },
+  {
+    "material": "Plaster on Masonry",
+    "category": "wall",
+    "Absorption_Coefficient_500Hz": 0.02
+  },
+  {
+    "material": "Plaster with Wallpaper Backing",
+    "category": "wall",
+    "Absorption_Coefficient_500Hz": 0.04
+  },
+  {
+    "material": "Wood Paneling",
+    "category": "wall",
+    "Absorption_Coefficient_500Hz": 0.15
+  },
+  {
+    "material": "Acoustic Plaster",
+    "category": "wall",
+    "Absorption_Coefficient_500Hz": 0.5
+  },
+  {
+    "material": "Fiberglass Board",
+    "category": "wall",
+    "Absorption_Coefficient_500Hz": 0.65
+  },
+  {
+    "material": "Fabric-Wrapped Panel",
+    "category": "wall",
+    "Absorption_Coefficient_500Hz": 0.8
+  },
+  {
+    "material": "Mineral Wool Insulation",
+    "category": "wall",
+    "Absorption_Coefficient_500Hz": 0.75
+  },
+  {
+    "material": "Acoustic Foam Panel",
+    "category": "wall",
+    "Absorption_Coefficient_500Hz": 0.85
+  },
+  {
+    "material": "Clay Brick Wall (Painted)",
+    "category": "wall",
+    "Absorption_Coefficient_500Hz": 0.25
+  },
+  {
+    "material": "Single Pane Glass",
+    "category": "window",
+    "Absorption_Coefficient_500Hz": 0.1
+  },
+  {
+    "material": "Double Pane Glass",
+    "category": "window",
+    "Absorption_Coefficient_500Hz": 0.18
+  },
+  {
+    "material": "Laminated Glass",
+    "category": "window",
+    "Absorption_Coefficient_500Hz": 0.2
+  },
+  {
+    "material": "Wired Glass",
+    "category": "window",
+    "Absorption_Coefficient_500Hz": 0.05
+  },
+  {
+    "material": "Frosted Glass",
+    "category": "window",
+    "Absorption_Coefficient_500Hz": 0.06
+  },
+  {
+    "material": "Insulated Glazing Unit",
+    "category": "window",
+    "Absorption_Coefficient_500Hz": 0.03
+  },
+  {
+    "material": "Glass Block",
+    "category": "window",
+    "Absorption_Coefficient_500Hz": 0.01
+  },
+  {
+    "material": "Glazed Ceramic Tile",
+    "category": "window",
+    "Absorption_Coefficient_500Hz": 0.01
+  },
+  {
+    "material": "Large Pane Glass",
+    "category": "window",
+    "Absorption_Coefficient_500Hz": 0.04
+  },
+  {
+    "material": "Small Pane Glass",
+    "category": "window",
+    "Absorption_Coefficient_500Hz": 0.03
+  },
+  {
+    "material": "Triple Glazing",
+    "category": "window",
+    "Absorption_Coefficient_500Hz": 0.22
+  },
+  {
+    "material": "Low-E Glass",
+    "category": "window",
+    "Absorption_Coefficient_500Hz": 0.19
+  },
+  {
+    "material": "Vacuum Insulated Glazing",
+    "category": "window",
+    "Absorption_Coefficient_500Hz": 0.25
+  },
+  {
+    "material": "Marble",
+    "category": "floor",
+    "Absorption_Coefficient_500Hz": 0.01
+  },
+  {
+    "material": "Terrazzo",
+    "category": "floor",
+    "Absorption_Coefficient_500Hz": 0.01
+  },
+  {
+    "material": "Vinyl Tile",
+    "category": "floor",
+    "Absorption_Coefficient_500Hz": 0.03
+  },
+  {
+    "material": "Wood Parquet",
+    "category": "floor",
+    "Absorption_Coefficient_500Hz": 0.07
+  },
+  {
+    "material": "Wood Flooring on Joists",
+    "category": "floor",
+    "Absorption_Coefficient_500Hz": 0.1
+  },
+  {
+    "material": "Thin Carpet on Concrete",
+    "category": "floor",
+    "Absorption_Coefficient_500Hz": 0.25
+  },
+  {
+    "material": "Thin Carpet on Wood",
+    "category": "floor",
+    "Absorption_Coefficient_500Hz": 0.3
+  },
+  {
+    "material": "Medium Pile Carpet",
+    "category": "floor",
+    "Absorption_Coefficient_500Hz": 0.5
+  },
+  {
+    "material": "Thick Pile Carpet",
+    "category": "floor",
+    "Absorption_Coefficient_500Hz": 0.5
+  },
+  {
+    "material": "Cork Floor Tiles",
+    "category": "floor",
+    "Absorption_Coefficient_500Hz": 0.15
+  },
+  {
+    "material": "Rubber Flooring",
+    "category": "floor",
+    "Absorption_Coefficient_500Hz": 0.35
+  },
+  {
+    "material": "Concrete with Acoustic Underlay",
+    "category": "floor",
+    "Absorption_Coefficient_500Hz": 0.28
+  },
+  {
+    "material": "Engineered Wood",
+    "category": "floor",
+    "Absorption_Coefficient_500Hz": 0.12
+  },
+  {
+    "material": "Solid Wood Door",
+    "category": "door",
+    "Absorption_Coefficient_500Hz": 0.06
+  },
+  {
+    "material": "Hollow-Core Wood Door",
+    "category": "door",
+    "Absorption_Coefficient_500Hz": 0.15
+  },
+  {
+    "material": "Acoustic Door",
+    "category": "door",
+    "Absorption_Coefficient_500Hz": 0.44
+  },
+  {
+    "material": "Steel Door with Acoustic Treatment",
+    "category": "door",
+    "Absorption_Coefficient_500Hz": 0.49
+  },
+  {
+    "material": "Plywood Door",
+    "category": "door",
+    "Absorption_Coefficient_500Hz": 0.1
+  },
+  {
+    "material": "Single Pane Glass Door",
+    "category": "door",
+    "Absorption_Coefficient_500Hz": 0.04
+  },
+  {
+    "material": "Double Pane Glass Door",
+    "category": "door",
+    "Absorption_Coefficient_500Hz": 0.03
+  },
+  {
+    "material": "Laminated Glass Door",
+    "category": "door",
+    "Absorption_Coefficient_500Hz": 0.2
+  },
+  {
+    "material": "Sliding Wood Door",
+    "category": "door",
+    "Absorption_Coefficient_500Hz": 0.05
+  },
+  {
+    "material": "Fire-Rated Door with Mineral Core",
+    "category": "door",
+    "Absorption_Coefficient_500Hz": 0.35
+  },
+  {
+    "material": "Composite Acoustic Door",
+    "category": "door",
+    "Absorption_Coefficient_500Hz": 0.55
+  },
+  {
+    "material": "Glass Reinforced Plastic Door",
+    "category": "door",
+    "Absorption_Coefficient_500Hz": 0.08
+  },
+  {
+    "material": "Acoustic Sliding Partition",
+    "category": "door",
+    "Absorption_Coefficient_500Hz": 0.4
+  }
 ]
