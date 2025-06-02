@@ -1,0 +1,50 @@
+{
+  "RT60_non_compliant": {
+    "description": "RT60 exceeds recommended limits, causing excessive echo and poor intelligibility.",
+    "general_recommendations": [
+      "Add acoustic panels to ceilings or upper walls",
+      "Introduce thick rugs, curtains, and upholstered furniture",
+      "Use wall and ceiling finishes with high absorption coefficients",
+      "Break up open volumes with spatial dividers or baffles",
+      "Avoid large hard-surface areas like exposed concrete or glass"
+    ],
+    "contextual_rules": [
+      {
+        "condition": "wall_material contains 'concrete'",
+        "suggestion": "Concrete reflects sound — consider adding internal absorptive finishes like wood slats or acoustic felt panels."
+      },
+      {
+        "condition": "window_material contains 'glass'",
+        "suggestion": "Large glazed areas reflect sound — use thick curtains or acoustic glass treatments."
+      }
+    ]
+  },
+  "LAeq_non_compliant": {
+    "description": "LAeq exceeds thresholds for this activity, indicating noise intrusion and potential discomfort.",
+    "general_recommendations": [
+      "Upgrade to triple-glazed or laminated acoustic windows",
+      "Seal window and door frames to reduce air leakage and flanking",
+      "Use higher-STC wall constructions with insulation layers",
+      "Reposition the room or activity away from exposed facades",
+      "Add landscape elements (green walls, berms, tree buffers) to absorb external noise"
+    ],
+    "contextual_rules": [
+      {
+        "condition": "Floor_Level == 1",
+        "suggestion": "Since the room is on the ground floor, consider green buffers or berms to reduce street-level noise."
+      },
+      {
+        "condition": "Floor_Level > 1",
+        "suggestion": "At upper floors, prioritize improving window systems — use laminated or triple-glazed units for better LAeq reduction."
+      },
+      {
+        "condition": "wall_material contains 'brick'",
+        "suggestion": "Brick has moderate sound insulation — add an inner insulated layer or gypsum board to increase wall STC."
+      },
+      {
+        "condition": "wall_material contains 'lightweight'",
+        "suggestion": "Lightweight walls are poor noise barriers — consider using dense layers or soundproofing board."
+      }
+    ]
+  }
+}

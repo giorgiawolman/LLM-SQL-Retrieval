@@ -7,8 +7,8 @@ sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")
 from server.config import *  # uses embedding_model, mode, client
 
 # File paths
-input_file = "knowledge/compliance_thresholds_extended.json"
-output_file = "knowledge/compliance_thresholds_vectors.json"
+input_file = "knowledge/compliance_guidance.json"
+output_file = "knowledge/compliance_guidance_vectors.json"
 
 # Load JSON entries
 with open(input_file, 'r', encoding='utf-8') as f:
@@ -16,13 +16,16 @@ with open(input_file, 'r', encoding='utf-8') as f:
 
 # Generate embedding chunks
 embeddings = []
-for i, entry in enumerate(data):
-    name = entry["use"]
-    content = f"{entry['use']} space: LAeq max {entry['LAeq_max']} dB, RT60 max {entry['RT60_max']} s. Source: {entry['source']}."
-    print(f"🔗 Embedding {name} ({i + 1}/{len(data)})...")
+for key, value in data.items():
+    name = key
+    desc = value.get("description", "")
+    recs = " ".join(value.get("general_recommendations", []))
+    content = f"{desc} Recommendations: {recs}"
+    
+    print(f"🔗 Embedding {name}...")
     vector = client.embeddings.create(input=[content], model=embedding_model).data[0].embedding
     embeddings.append({
-        "name": name,
+        "key": key,
         "content": content,
         "vector": vector
     })

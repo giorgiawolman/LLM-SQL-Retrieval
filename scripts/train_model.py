@@ -1,4 +1,4 @@
-import pandas as pd
+import pandas as pd 
 import joblib
 import os
 from sklearn.model_selection import train_test_split
@@ -8,18 +8,24 @@ from sklearn.compose import ColumnTransformer
 from sklearn.preprocessing import OneHotEncoder, StandardScaler
 
 # === 1. Load Cleaned Dataset ===
-df = pd.read_csv("sql/cleaned_dataset.csv")  # Make sure the path is correct
+df = pd.read_csv("sql/cleaned_dataset.csv")  # Update if needed
 
 # === 2. Define Target and Features ===
 y = df["Comfort_Index"]
 X = df.drop(columns=["Comfort_Index", "Material"])  # Drop target and unused
 
-# === 3. Specify Column Types ===
+# === 3. Specify Column Types (MATCHES your dataset exactly) ===
 categorical = ["Zone", "Apartment_Type", "Element"]
 numeric = [
-    "Laeq", "SPL", "RT60(seconds)", "RT60 (material ac)",
-    "Surface_Area(m)", "Height", "Absortion_Coefficient", "Facade_Dampening(Score)"
+    "SPL", "RT60 (material ac)", "RT60(seconds)",
+    "Absortion_Coefficient", "Height", "Surface_Area(m)", "Facade_Dampening(Score)"
 ]
+
+# === ✅ Sanity Check ===
+expected_columns = categorical + numeric
+missing = [col for col in expected_columns if col not in X.columns]
+if missing:
+    raise ValueError(f"Missing columns in feature set: {missing}")
 
 # === 4. Build Preprocessing Pipeline ===
 preprocessor = ColumnTransformer([
