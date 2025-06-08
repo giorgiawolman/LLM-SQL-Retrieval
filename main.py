@@ -1,24 +1,64 @@
-from sql_calls_v1 import query_or_predict
+import sys
+import os
 
-# --- Example User Input ---
-user_input = {
-    "Apartment_Type": "1Bed",
-    "Zone": "GreenEdge-V3",
-    "Element": "Wall",
-    "wall_material": "Double Glazing",
-    "Floor_Level": 2  # Will be auto-converted to floor_height inside the function
-}
+# Ensure local import path
+sys.path.insert(0, os.path.abspath(os.path.dirname(__file__)))
 
-print("📡 Fetching DB schema...")
-print("✨ Starting RAG process...")
-print("🔄 Initiating RAG...")
-print("✅ Relevant table: comfort_lookup\n")
+from llm_calls import extract_variables, build_answer
+from sql_calls import query_or_recommend
 
-# Run the query or model prediction
-result = query_or_predict(user_input)
+# === CONFIG: Choose input mode ===
+use_structured_input = True  # ⬅️ Set to True to test structured inputs directly
 
-# Display results
-print("---- Comfort Score Result ----")
-print(f"🎯 Score: {round(result['score'], 3)}")
-print(f"Source: {result['source']}")
-print(f"Compliance: {result['compliance']}")
+# === INPUT BLOCK ===
+if use_structured_input:
+    print("🟢 Using structured input...")
+    user_input = {
+        "Apartment_Type": "2Bed",
+        "Zone": "GreenEdge-V3",
+        "Element": "Living",
+        "wall_material": "Rammed Earth",
+        "window_material": "Single Glazing",
+        "Floor_Level": 1,
+        "activity": "Sleeping"
+    }
+    user_question = (
+        f"Evaluate acoustic comfort and compliance for a {user_input['Apartment_Type']} apartment "
+        f"in {user_input['Zone']} with {user_input['wall_material']} walls and "
+        f"{user_input['window_material']} windows on floor {user_input['Floor_Level']}."
+    )
+
+else:
+    print("🔵 Using free-form question...")
+    user_question = "How can I improve acoustic comfort in a 1Bed apartment in HD-Urban-V1 with single glazing and concrete walls on the 3rd floor?"
+    
+    print("🤖 Extracting structured parameters from question...")
+    user_input = extract_variables(user_question)
+    
+    if not user_input:
+        print("❌ Failed to extract parameters from question.")
+        sys.exit(1)
+    
+    print("✅ Extracted input:", user_input)
+    
+    # Add default activity if not mentioned
+    user_input.setdefault("activity", "Living")
+
+# === Acoustic Evaluation ===
+print("🔍 Evaluating acoustic comfort...")
+try:
+    result = query_or_recommend(user_input)
+except Exception as e:
+    print(f"❌ Acoustic evaluation failed: {e}")
+    sys.exit(1)
+
+# === Summarize Output ===
+print("\n📦 Raw Output:")
+print(result)
+
+print("\n🧠 Generating summary...")
+try:
+    summary = build_answer(user_question, result)
+    print("\n" + summary)
+except Exception as e:
+    print(f"❌ Failed to generate summary: {e}")

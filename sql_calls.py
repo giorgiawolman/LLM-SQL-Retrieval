@@ -1,91 +1,69 @@
 import sqlite3
 import pandas as pd
-import re
-from llm_calls import fix_sql_query
+import os
+from recommend_recompute import recommend_recompute
 
-# 🔹 Get full schema from a given SQLite database
-def get_dB_schema(dB_path):
-    conn = sqlite3.connect(dB_path)
+# === Path to SQLite DB ===
+DB_PATH = "sql/comfort-database.db"
+
+# === Main SQL Call Function ===
+def query_or_recommend(user_input):
+    """
+    First attempts to retrieve the acoustic comfort score from the SQL database.
+    If no match is found, falls back to the ML model and recommendation pipeline.
+    """
+    abs_db_path = os.path.abspath(DB_PATH)
+    print(f"🔍 Using database file: {abs_db_path}")
+    conn = sqlite3.connect(abs_db_path)
+
+    # Check available columns in the table
     cursor = conn.cursor()
-    schema_info = {}
+    cursor.execute("PRAGMA table_info(comfort_lookup);")
+    columns = [row[1] for row in cursor.fetchall()]
+    print("📋 Available Columns in comfort_lookup:", columns)
 
-    cursor.execute("SELECT name FROM sqlite_master WHERE type='table';")
-    table_names = cursor.fetchall()
+    # Build WHERE clause based on available user input
+    conditions = []
 
-    for (table_name,) in table_names:
-        cursor.execute(f"PRAGMA table_info({table_name});")
-        columns = [col[1] for col in cursor.fetchall()]
-        schema_info[table_name] = columns
+    if "Apartment_Type" in user_input:
+        conditions.append(f"LOWER(apartment_type_string) = '{user_input['Apartment_Type'].lower()}'")
+    if "Zone" in user_input:
+        conditions.append(f"LOWER(zone_string) = '{user_input['Zone'].lower()}'")
+    if "wall_material" in user_input:
+        material = user_input["wall_material"].lower()
+        conditions.append(f"LOWER(element_materials_string) LIKE '%{material}%'")
+    if "Floor_Level" in user_input:
+        floor_height = round(user_input["Floor_Level"] * 3, 2)
+        if "floor_height_m" in columns:
+            conditions.append(f"ABS(floor_height_m - {floor_height}) < 0.1")
+        elif "floor_level" in columns:
+            conditions.append(f"floor_level = {user_input['Floor_Level']}")
 
-    conn.close()
-    return schema_info
+    # Final SQL query
+    sql_query = f"""
+    SELECT comfort_index_float, 'Compliant' AS compliance
+    FROM comfort_lookup
+    WHERE {' AND '.join(conditions)}
+    ORDER BY comfort_index_float DESC
+    LIMIT 1;
+    """
 
-# 🔹 Format schema + sample rows for LLM prompt
-def format_dB_context(dB_path, filtered_schema: dict) -> str:
-    def fetch_example_rows(db_path, table_name):
-        conn = sqlite3.connect(db_path)
-        cursor = conn.cursor()
-        cursor.execute(f"SELECT * FROM {table_name} ORDER BY RANDOM() LIMIT 3")
-        rows = cursor.fetchall()
-        conn.close()
-        return rows
+    print("📝 SQL Query:", sql_query)
 
-    chunks = []
-    for table_name, columns in filtered_schema.items():
-        sample_rows = fetch_example_rows(dB_path, table_name)
-        df = pd.DataFrame(sample_rows, columns=columns)
-
-        chunk = f"""CREATE TABLE "{table_name}" ({', '.join(columns)})
-        /*
-        {df.to_string(index=False)}
-        */
-        """
-        chunks.append(chunk)
-
-    return "\n".join(chunks)
-
-# 🔹 Run a direct SQL query
-def execute_sql_query(dB_path, sql_query):
-    conn = sqlite3.connect(dB_path)
-    cursor = conn.cursor()
-    cursor.execute(sql_query)
-    result = cursor.fetchall()
-    conn.close()
-    return result
-
-# 🔁 Retry a SQL query with LLM fix suggestions
-def fetch_sql(sql_query, dB_context, user_question, dB_path):
-    attempt = 1
-    max_retries = 3
-    attempted_queries = []
-    exceptions = []
-
-    while attempt <= max_retries:
-        try:
-            print("____________________")
-            print(f"Execute Attempt {attempt}/{max_retries}")
-            sql_result = execute_sql_query(dB_path, sql_query)
-
-            if not sql_result or str(sql_result) == "[(0,)]":
-                error = "Query returned empty."
-                attempted_queries.append(sql_query)
-                exceptions.append(error)
-
-                sql_query = fix_sql_query(dB_context, user_question, attempted_queries, exceptions)
-                print(f"Query result: EMPTY. Trying new query:\n{sql_query}")
-                attempt += 1
-                continue
-            else:
-                print("✅ SQL query returned valid result.")
-                return sql_query, sql_result
-
-        except Exception as e:
-            error = str(e)
-            attempted_queries.append(sql_query)
-            exceptions.append(error)
-
-            sql_query = fix_sql_query(dB_context, user_question, attempted_queries, exceptions)
-            print(f"Query result: ERROR. Trying new query:\n{sql_query}")
-            attempt += 1
-
-    return None, "❌ Failed after multiple attempts"
+    try:
+        result = pd.read_sql_query(sql_query, conn)
+        if not result.empty:
+            print("✅ Match found in SQL database.")
+            return {
+                "comfort_score": round(result.iloc[0]["comfort_index_float"], 3),
+                "source": "SQL Match",
+                "compliance": {"status": "compliant", "reason": "Matched from database"},
+                "recommendations": {},
+                "improved_score": None
+            }
+        else:
+            raise ValueError("No match in SQL.")
+    except Exception as e:
+        print("⚠️ SQL lookup failed or no match:", e)
+        print("🔄 Switching to model + compliance + recommendation...")
+        return recommend_recompute(user_input)
