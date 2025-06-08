@@ -38,14 +38,20 @@ def infer_features(apartment_type, zone, element, wall_material=None, window_mat
                 features = match.iloc[0].to_dict()
                 tier = "Tier 3"
             else:
-                # === Final fallback: dataset average values ===
+                # === Final fallback: dataset average values or zone average for Laeq ===
                 print("⚠️ Tier 4: Final fallback using dataset averages.")
                 means = df.mean(numeric_only=True).to_dict()
+
+                # Try zone-specific average LAeq if available
+                laeq_zone = df[df["Zone"] == zone]["Laeq"].mean()
+                if pd.isna(laeq_zone):
+                    laeq_zone = means.get("Laeq", 55.0)
+
                 features = {
                     "Zone": zone,
                     "Apartment_Type": apartment_type,
                     "Element": element,
-                    "Laeq": means.get("Laeq", 55.0),
+                    "Laeq": laeq_zone,
                     "SPL": means.get("SPL", 0.35),
                     "RT60(seconds)": means.get("RT60(seconds)", 0.5),
                     "RT60 (material ac)": means.get("RT60 (material ac)", 0.5),

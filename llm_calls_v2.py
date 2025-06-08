@@ -1,7 +1,5 @@
 from server.config import client, completion_model
 import re
-import sqlite3
-import pandas as pd
 
 # 🔹 Generate SQL query from user question and schema
 def generate_sql_query(dB_context: str, retrieved_descriptions: str, user_question: str) -> str:
@@ -40,18 +38,7 @@ You generate SQL queries for a database that includes:
     )
     return response.choices[0].message.content.strip()
 
-# 🔹 Execute SQL safely and return records
-def fetch_sql(query: str, db_context: str, user_question: str, db_path: str):
-    try:
-        conn = sqlite3.connect(db_path)
-        df = pd.read_sql(query, conn)
-        conn.close()
-        return query, df.to_dict(orient="records")
-    except Exception as e:
-        print("❌ SQL execution failed:", e)
-        return query, []
-
-# 🔹 Summarize acoustic comfort findings
+# 🔹 Explain SQL result in context of acoustic comfort
 def build_answer(sql_query: str, sql_result: str, user_question: str) -> str:
     response = client.chat.completions.create(
         model=completion_model,
@@ -80,7 +67,7 @@ SQL Result: {sql_result}
     )
     return response.choices[0].message.content.strip()
 
-# 🔹 LLM-based fixer for broken SQL queries
+# 🔹 Fix SQL query that failed
 def fix_sql_query(dB_context: str, user_question: str, attempted_queries: list, exceptions: list) -> str:
     error_log = "\n".join([
         f"# Query: {q}\n# Error: {e}" for q, e in zip(attempted_queries, exceptions)

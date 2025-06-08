@@ -1,23 +1,21 @@
-# sql/create_material_db.py
-
 import sqlite3
 import pandas as pd
 from pathlib import Path
 
 # File paths
-csv_file_path = Path("sql/material_acoustic_knowledge_cleaned.csv")
-db_file_path = Path("sql/material-database.db")
+csv_file_path = Path("sql/Ecoform_Dataset_v1.csv")
+db_file_path = Path("sql/comfort-database.db")
 
 # Load CSV
 df = pd.read_csv(csv_file_path)
-df.columns = df.columns.str.strip().str.replace(" ", "_")  # Clean column names
+df.columns = df.columns.str.strip().str.replace(" ", "_").str.replace("(", "").str.replace(")", "").str.lower()
 
 # Connect to SQLite
 conn = sqlite3.connect(db_file_path)
 cursor = conn.cursor()
 
 # Drop existing table if it exists
-cursor.execute("DROP TABLE IF EXISTS material_knowledge")
+cursor.execute("DROP TABLE IF EXISTS comfort_lookup")
 
 # Define SQL column types based on DataFrame
 types = df.dtypes
@@ -33,15 +31,15 @@ for col, dtype in zip(df.columns, types):
 
 # Create table
 create_table_sql = f'''
-CREATE TABLE material_knowledge (
+CREATE TABLE comfort_lookup (
     {', '.join(column_defs)}
 )
 '''
 cursor.execute(create_table_sql)
 
 # Insert data into table
-df.to_sql("material_knowledge", conn, if_exists="append", index=False)
-print(f"✅ Material acoustic knowledge inserted into {db_file_path}")
+df.to_sql("comfort_lookup", conn, if_exists="append", index=False)
+print(f"✅ Comfort dataset inserted into {db_file_path}")
 
 # Close connection
 conn.close()
