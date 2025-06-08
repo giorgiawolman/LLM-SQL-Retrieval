@@ -10,18 +10,29 @@ from sklearn.preprocessing import OneHotEncoder, StandardScaler
 from sklearn.metrics import r2_score, mean_absolute_error
 
 # === 1. Load Dataset ===
-df = pd.read_csv("sql/Ecoform_Dataset_v1.csv")  # Adjusted path
+df = pd.read_csv("sql/Ecoform_Dataset_v1.csv")
 
-# === 2. Clean Column Names ===
+# === 2. Clean & Deduplicate Column Names ===
 def clean_col(col):
     col = col.strip().lower()
     col = re.sub(r'[():]', '', col)
     col = re.sub(r'\s+', '_', col)
     return col
 
-df.columns = [clean_col(col) for col in df.columns]
+raw_cols = [clean_col(col) for col in df.columns]
+deduped_cols = []
+seen = {}
+for col in raw_cols:
+    if col not in seen:
+        seen[col] = 1
+        deduped_cols.append(col)
+    else:
+        seen[col] += 1
+        deduped_cols.append(f"{col}_{seen[col]}")
 
-# === 3. Identify Target Column (robust match) ===
+df.columns = deduped_cols
+
+# === 3. Identify Target Column ===
 target_col_candidates = [col for col in df.columns if "comfort" in col and "index" in col]
 assert len(target_col_candidates) == 1, "❌ Could not uniquely identify comfort index column."
 target_col = target_col_candidates[0]
@@ -42,10 +53,10 @@ preprocessor = ColumnTransformer([
 pipeline = Pipeline([
     ("preprocessor", preprocessor),
     ("regressor", RandomForestRegressor(
-        n_estimators=30,        # Balanced: better than 10, faster than 100
+        n_estimators=30,
         random_state=42,
-        n_jobs=-1,              # Use all cores
-        verbose=1               # Show progress
+        n_jobs=-1,
+        verbose=1
     )),
 ])
 

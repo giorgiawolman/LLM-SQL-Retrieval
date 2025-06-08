@@ -48,19 +48,24 @@ def build_answer(user_question: str, result: dict) -> str:
     recommendations = result.get("recommendations", {})
     improved_score = result.get("improved_score", None)
 
-    reason = compliance.get("reason", "")
-    status = compliance.get("status", "unknown")
+    best_materials = result.get("best_materials", {})
+    best_score = result.get("best_score", None)
 
     summary_prompt = f"""
 User Question:
 {user_question}
 
-📊 Evaluation Result:
+📊 Evaluation Summary:
 - Comfort Score: {score}
 - Source: {source}
-- Compliance Status: {status} — {reason}
-- Recommendations: {recommendations if recommendations else "None needed"}
-- Improved Score: {improved_score if improved_score else "N/A"}
+- Compliance: {compliance.get("status")} — {compliance.get("reason")}
+
+🛠 Recommendations:
+{recommendations if recommendations else "None needed"}
+
+💡 Material Upgrade Suggestions:
+{best_materials if best_materials else "No upgrades suggested"}
+Improved Score: {round(best_score, 3) if best_score else "N/A"}
 """
 
     response = client.chat.completions.create(
@@ -69,14 +74,14 @@ User Question:
             {
                 "role": "system",
                 "content": """
-You are an assistant that summarizes acoustic comfort evaluations clearly and concisely.
+You summarize acoustic comfort evaluations for architects and sustainability consultants.
 
 Instructions:
-- Be brief and avoid repetition.
-- Never say the same sentence multiple times.
-- Clearly state whether the space is compliant.
-- If there are recommendations, summarize them as a helpful list.
-- Avoid unnecessary elaboration if the result is already compliant.
+- Do not repeat sentences.
+- Clearly state compliance.
+- If material upgrades are provided, summarize them usefully.
+- Use bullets for clarity if needed.
+- If compliant, avoid unnecessary suggestions.
 """
             },
             {

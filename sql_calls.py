@@ -29,12 +29,21 @@ def query_or_recommend(user_input):
         conditions.append(f"LOWER(apartment_type_string) = '{user_input['Apartment_Type'].lower()}'")
     if "Zone" in user_input:
         conditions.append(f"LOWER(zone_string) = '{user_input['Zone'].lower()}'")
-    if "wall_material" in user_input:
-        material = user_input["wall_material"].lower()
-        conditions.append(f"LOWER(element_materials_string) LIKE '%{material}%'")
+
+    # Try full match of both materials first
+    if "wall_material" in user_input and "window_material" in user_input:
+        combo = f"{user_input['window_material']} and {user_input['wall_material']}".lower()
+        conditions.append(f"LOWER(element_materials_string) LIKE '%{combo}%'")
+    else:
+        if "wall_material" in user_input:
+            conditions.append(f"LOWER(element_materials_string) LIKE '%{user_input['wall_material'].lower()}%'")
+        if "window_material" in user_input:
+            conditions.append(f"LOWER(element_materials_string) LIKE '%{user_input['window_material'].lower()}%'")
+
     if "Floor_Level" in user_input:
-        floor_height = round(user_input["Floor_Level"] * 3, 2)
+        floor_height = round(user_input["Floor_Level"] * 3.0, 2)
         if "floor_height_m" in columns:
+            # Add tolerance to avoid float mismatch
             conditions.append(f"ABS(floor_height_m - {floor_height}) < 0.1")
         elif "floor_level" in columns:
             conditions.append(f"floor_level = {user_input['Floor_Level']}")
@@ -47,7 +56,6 @@ def query_or_recommend(user_input):
     ORDER BY comfort_index_float DESC
     LIMIT 1;
     """
-
     print("📝 SQL Query:", sql_query)
 
     try:

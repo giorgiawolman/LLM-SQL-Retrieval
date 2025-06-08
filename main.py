@@ -30,17 +30,20 @@ if use_structured_input:
 
 else:
     print("🔵 Using free-form question...")
-    user_question = "How can I improve acoustic comfort in a 1Bed apartment in HD-Urban-V1 with single glazing and concrete walls on the 3rd floor?"
-    
+    user_question = (
+        "How can I improve acoustic comfort in a 1Bed apartment in HD-Urban-V1 "
+        "with single glazing and concrete walls on the 3rd floor?"
+    )
+
     print("🤖 Extracting structured parameters from question...")
     user_input = extract_variables(user_question)
-    
+
     if not user_input:
         print("❌ Failed to extract parameters from question.")
         sys.exit(1)
-    
+
     print("✅ Extracted input:", user_input)
-    
+
     # Add default activity if not mentioned
     user_input.setdefault("activity", "Living")
 
@@ -52,10 +55,12 @@ except Exception as e:
     print(f"❌ Acoustic evaluation failed: {e}")
     sys.exit(1)
 
-# === Summarize Output ===
+# === Print Raw Output ===
 print("\n📦 Raw Output:")
-print(result)
+for key, val in result.items():
+    print(f"{key}: {val}")
 
+# === Generate LLM Summary ===
 print("\n🧠 Generating summary...")
 try:
     summary = build_answer(user_question, result)
