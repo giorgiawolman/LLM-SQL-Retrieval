@@ -1,267 +1,1028 @@
-[
-  {
-    "material": "Painted Brick",
-    "category": "wall",
-    "Absorption_Coefficient_500Hz": 0.01
-  },
-  {
-    "material": "Unpainted Brick",
-    "category": "wall",
-    "Absorption_Coefficient_500Hz": 0.03
-  },
-  {
-    "material": "Concrete Block (Coarse)",
-    "category": "wall",
-    "Absorption_Coefficient_500Hz": 0.36
-  },
-  {
-    "material": "Concrete Block (Painted)",
-    "category": "wall",
-    "Absorption_Coefficient_500Hz": 0.46
-  },
-  {
-    "material": "Gypsum Board",
-    "category": "wall",
-    "Absorption_Coefficient_500Hz": 0.05
-  },
-  {
-    "material": "Plaster on Masonry",
-    "category": "wall",
-    "Absorption_Coefficient_500Hz": 0.02
-  },
-  {
-    "material": "Plaster with Wallpaper Backing",
-    "category": "wall",
-    "Absorption_Coefficient_500Hz": 0.04
-  },
-  {
-    "material": "Wood Paneling",
-    "category": "wall",
-    "Absorption_Coefficient_500Hz": 0.15
-  },
-  {
-    "material": "Acoustic Plaster",
-    "category": "wall",
-    "Absorption_Coefficient_500Hz": 0.5
-  },
-  {
-    "material": "Fiberglass Board",
-    "category": "wall",
-    "Absorption_Coefficient_500Hz": 0.65
-  },
-  {
-    "material": "Fabric-Wrapped Panel",
-    "category": "wall",
-    "Absorption_Coefficient_500Hz": 0.8
-  },
-  {
-    "material": "Mineral Wool Insulation",
-    "category": "wall",
-    "Absorption_Coefficient_500Hz": 0.75
-  },
-  {
-    "material": "Acoustic Foam Panel",
-    "category": "wall",
-    "Absorption_Coefficient_500Hz": 0.85
-  },
-  {
-    "material": "Clay Brick Wall (Painted)",
-    "category": "wall",
-    "Absorption_Coefficient_500Hz": 0.25
-  },
-  {
-    "material": "Single Pane Glass",
-    "category": "window",
-    "Absorption_Coefficient_500Hz": 0.1
-  },
-  {
-    "material": "Double Pane Glass",
-    "category": "window",
-    "Absorption_Coefficient_500Hz": 0.18
-  },
-  {
-    "material": "Laminated Glass",
-    "category": "window",
-    "Absorption_Coefficient_500Hz": 0.2
-  },
-  {
-    "material": "Wired Glass",
-    "category": "window",
-    "Absorption_Coefficient_500Hz": 0.05
-  },
-  {
-    "material": "Frosted Glass",
-    "category": "window",
-    "Absorption_Coefficient_500Hz": 0.06
-  },
-  {
-    "material": "Insulated Glazing Unit",
-    "category": "window",
-    "Absorption_Coefficient_500Hz": 0.03
-  },
-  {
-    "material": "Glass Block",
-    "category": "window",
-    "Absorption_Coefficient_500Hz": 0.01
-  },
-  {
-    "material": "Glazed Ceramic Tile",
-    "category": "window",
-    "Absorption_Coefficient_500Hz": 0.01
-  },
-  {
-    "material": "Large Pane Glass",
-    "category": "window",
-    "Absorption_Coefficient_500Hz": 0.04
-  },
-  {
-    "material": "Small Pane Glass",
-    "category": "window",
-    "Absorption_Coefficient_500Hz": 0.03
-  },
-  {
-    "material": "Triple Glazing",
-    "category": "window",
-    "Absorption_Coefficient_500Hz": 0.22
-  },
-  {
-    "material": "Low-E Glass",
-    "category": "window",
-    "Absorption_Coefficient_500Hz": 0.19
-  },
-  {
-    "material": "Vacuum Insulated Glazing",
-    "category": "window",
-    "Absorption_Coefficient_500Hz": 0.25
-  },
-  {
-    "material": "Marble",
-    "category": "floor",
-    "Absorption_Coefficient_500Hz": 0.01
-  },
-  {
-    "material": "Terrazzo",
-    "category": "floor",
-    "Absorption_Coefficient_500Hz": 0.01
-  },
-  {
-    "material": "Vinyl Tile",
-    "category": "floor",
-    "Absorption_Coefficient_500Hz": 0.03
-  },
-  {
-    "material": "Wood Parquet",
-    "category": "floor",
-    "Absorption_Coefficient_500Hz": 0.07
-  },
-  {
-    "material": "Wood Flooring on Joists",
-    "category": "floor",
-    "Absorption_Coefficient_500Hz": 0.1
-  },
-  {
-    "material": "Thin Carpet on Concrete",
-    "category": "floor",
-    "Absorption_Coefficient_500Hz": 0.25
-  },
-  {
-    "material": "Thin Carpet on Wood",
-    "category": "floor",
-    "Absorption_Coefficient_500Hz": 0.3
-  },
-  {
-    "material": "Medium Pile Carpet",
-    "category": "floor",
-    "Absorption_Coefficient_500Hz": 0.5
-  },
-  {
-    "material": "Thick Pile Carpet",
-    "category": "floor",
-    "Absorption_Coefficient_500Hz": 0.5
-  },
-  {
-    "material": "Cork Floor Tiles",
-    "category": "floor",
-    "Absorption_Coefficient_500Hz": 0.15
-  },
-  {
-    "material": "Rubber Flooring",
-    "category": "floor",
-    "Absorption_Coefficient_500Hz": 0.35
-  },
-  {
-    "material": "Concrete with Acoustic Underlay",
-    "category": "floor",
-    "Absorption_Coefficient_500Hz": 0.28
-  },
-  {
-    "material": "Engineered Wood",
-    "category": "floor",
-    "Absorption_Coefficient_500Hz": 0.12
-  },
-  {
-    "material": "Solid Wood Door",
-    "category": "door",
-    "Absorption_Coefficient_500Hz": 0.06
-  },
-  {
-    "material": "Hollow-Core Wood Door",
-    "category": "door",
-    "Absorption_Coefficient_500Hz": 0.15
-  },
-  {
-    "material": "Acoustic Door",
-    "category": "door",
-    "Absorption_Coefficient_500Hz": 0.44
-  },
-  {
-    "material": "Steel Door with Acoustic Treatment",
-    "category": "door",
-    "Absorption_Coefficient_500Hz": 0.49
-  },
-  {
-    "material": "Plywood Door",
-    "category": "door",
-    "Absorption_Coefficient_500Hz": 0.1
-  },
-  {
-    "material": "Single Pane Glass Door",
-    "category": "door",
-    "Absorption_Coefficient_500Hz": 0.04
-  },
-  {
-    "material": "Double Pane Glass Door",
-    "category": "door",
-    "Absorption_Coefficient_500Hz": 0.03
-  },
-  {
-    "material": "Laminated Glass Door",
-    "category": "door",
-    "Absorption_Coefficient_500Hz": 0.2
-  },
-  {
-    "material": "Sliding Wood Door",
-    "category": "door",
-    "Absorption_Coefficient_500Hz": 0.05
-  },
-  {
-    "material": "Fire-Rated Door with Mineral Core",
-    "category": "door",
-    "Absorption_Coefficient_500Hz": 0.35
-  },
-  {
-    "material": "Composite Acoustic Door",
-    "category": "door",
-    "Absorption_Coefficient_500Hz": 0.55
-  },
-  {
-    "material": "Glass Reinforced Plastic Door",
-    "category": "door",
-    "Absorption_Coefficient_500Hz": 0.08
-  },
-  {
-    "material": "Acoustic Sliding Partition",
-    "category": "door",
-    "Absorption_Coefficient_500Hz": 0.4
-  }
-]
+{
+  "wall_material": [
+    {
+      "name": "Concrete Block (Painted)",
+      "absorption_coefficient": 0.15
+    },
+    {
+      "name": "Concrete Block (Coarse)",
+      "absorption_coefficient": 0.17
+    },
+    {
+      "name": "Painted Brick",
+      "absorption_coefficient": 0.19
+    },
+    {
+      "name": "Wood Paneling",
+      "absorption_coefficient": 0.21
+    },
+    {
+      "name": "Plaster on Masonry",
+      "absorption_coefficient": 0.23
+    },
+    {
+      "name": "Fiberglass Board",
+      "absorption_coefficient": 0.25
+    },
+    {
+      "name": "Acoustic Plaster",
+      "absorption_coefficient": 0.27
+    },
+    {
+      "name": "Gypsum Board",
+      "absorption_coefficient": 0.29
+    },
+    {
+      "name": "Unpainted Brick",
+      "absorption_coefficient": 0.31
+    },
+    {
+      "name": "Plaster with Wallpaper Backing",
+      "absorption_coefficient": 0.33
+    }
+  ],
+  "window_material": [
+    {
+      "name": "Insulated Glazing Unit and Painted Brick",
+      "absorption_coefficient": 0.15
+    },
+    {
+      "name": "Small Pane Glass and Concrete Block (Coarse)",
+      "absorption_coefficient": 0.17
+    },
+    {
+      "name": "Single Pane Glass and Unpainted Brick",
+      "absorption_coefficient": 0.19
+    },
+    {
+      "name": "Single Pane Glass and Plaster on Masonry",
+      "absorption_coefficient": 0.21
+    },
+    {
+      "name": "Wired Glass and Wood Paneling",
+      "absorption_coefficient": 0.23
+    },
+    {
+      "name": "Laminated Glass and Painted Brick",
+      "absorption_coefficient": 0.25
+    },
+    {
+      "name": "Glass Block and Plaster on Masonry",
+      "absorption_coefficient": 0.27
+    },
+    {
+      "name": "Insulated Glazing Unit and Acoustic Plaster",
+      "absorption_coefficient": 0.29
+    },
+    {
+      "name": "Insulated Glazing Unit and Concrete Block (Painted)",
+      "absorption_coefficient": 0.31
+    },
+    {
+      "name": "Double Pane Glass and Fiberglass Board",
+      "absorption_coefficient": 0.33
+    },
+    {
+      "name": "Laminated Glass and Wood Paneling",
+      "absorption_coefficient": 0.15
+    },
+    {
+      "name": "Single Pane Glass and Acoustic Plaster",
+      "absorption_coefficient": 0.17
+    },
+    {
+      "name": "Glazed Ceramic Tile and Wood Paneling",
+      "absorption_coefficient": 0.19
+    },
+    {
+      "name": "Small Pane Glass and Plaster with Wallpaper Backing",
+      "absorption_coefficient": 0.21
+    },
+    {
+      "name": "Large Pane Glass and Acoustic Plaster",
+      "absorption_coefficient": 0.23
+    },
+    {
+      "name": "Frosted Glass and Painted Brick",
+      "absorption_coefficient": 0.25
+    },
+    {
+      "name": "Large Pane Glass and Gypsum Board",
+      "absorption_coefficient": 0.27
+    },
+    {
+      "name": "Frosted Glass and Unpainted Brick",
+      "absorption_coefficient": 0.29
+    },
+    {
+      "name": "Single Pane Glass and Concrete Block (Coarse)",
+      "absorption_coefficient": 0.31
+    },
+    {
+      "name": "Glazed Ceramic Tile and Concrete Block (Coarse)",
+      "absorption_coefficient": 0.33
+    },
+    {
+      "name": "Glass Block and Concrete Block (Coarse)",
+      "absorption_coefficient": 0.15
+    },
+    {
+      "name": "Wired Glass and Concrete Block (Coarse)",
+      "absorption_coefficient": 0.17
+    },
+    {
+      "name": "Frosted Glass and Plaster with Wallpaper Backing",
+      "absorption_coefficient": 0.19
+    },
+    {
+      "name": "Double Pane Glass and Painted Brick",
+      "absorption_coefficient": 0.21
+    },
+    {
+      "name": "Laminated Glass and Concrete Block (Painted)",
+      "absorption_coefficient": 0.23
+    },
+    {
+      "name": "Frosted Glass and Fiberglass Board",
+      "absorption_coefficient": 0.25
+    },
+    {
+      "name": "Glass Block and Acoustic Plaster",
+      "absorption_coefficient": 0.27
+    },
+    {
+      "name": "Wired Glass and Fiberglass Board",
+      "absorption_coefficient": 0.29
+    },
+    {
+      "name": "Small Pane Glass and Wood Paneling",
+      "absorption_coefficient": 0.31
+    },
+    {
+      "name": "Glass Block and Gypsum Board",
+      "absorption_coefficient": 0.33
+    },
+    {
+      "name": "Single Pane Glass and Concrete Block (Painted)",
+      "absorption_coefficient": 0.15
+    },
+    {
+      "name": "Small Pane Glass and Unpainted Brick",
+      "absorption_coefficient": 0.17
+    },
+    {
+      "name": "Double Pane Glass and Concrete Block (Coarse)",
+      "absorption_coefficient": 0.19
+    },
+    {
+      "name": "Glass Block and Painted Brick",
+      "absorption_coefficient": 0.21
+    },
+    {
+      "name": "Glazed Ceramic Tile and Concrete Block (Painted)",
+      "absorption_coefficient": 0.23
+    },
+    {
+      "name": "Wired Glass and Unpainted Brick",
+      "absorption_coefficient": 0.25
+    },
+    {
+      "name": "Glass Block and Wood Paneling",
+      "absorption_coefficient": 0.27
+    },
+    {
+      "name": "Small Pane Glass and Painted Brick",
+      "absorption_coefficient": 0.29
+    },
+    {
+      "name": "Insulated Glazing Unit and Concrete Block (Coarse)",
+      "absorption_coefficient": 0.31
+    },
+    {
+      "name": "Small Pane Glass and Fiberglass Board",
+      "absorption_coefficient": 0.33
+    },
+    {
+      "name": "Laminated Glass and Plaster on Masonry",
+      "absorption_coefficient": 0.15
+    },
+    {
+      "name": "Wired Glass and Plaster with Wallpaper Backing",
+      "absorption_coefficient": 0.17
+    },
+    {
+      "name": "Insulated Glazing Unit and Unpainted Brick",
+      "absorption_coefficient": 0.19
+    },
+    {
+      "name": "Large Pane Glass and Fiberglass Board",
+      "absorption_coefficient": 0.21
+    },
+    {
+      "name": "Laminated Glass and Concrete Block (Coarse)",
+      "absorption_coefficient": 0.23
+    },
+    {
+      "name": "Frosted Glass and Acoustic Plaster",
+      "absorption_coefficient": 0.25
+    },
+    {
+      "name": "Frosted Glass and Concrete Block (Coarse)",
+      "absorption_coefficient": 0.27
+    },
+    {
+      "name": "Glazed Ceramic Tile and Unpainted Brick",
+      "absorption_coefficient": 0.29
+    },
+    {
+      "name": "Frosted Glass and Gypsum Board",
+      "absorption_coefficient": 0.31
+    },
+    {
+      "name": "Insulated Glazing Unit and Wood Paneling",
+      "absorption_coefficient": 0.33
+    },
+    {
+      "name": "Wired Glass and Painted Brick",
+      "absorption_coefficient": 0.15
+    },
+    {
+      "name": "Large Pane Glass and Concrete Block (Coarse)",
+      "absorption_coefficient": 0.17
+    },
+    {
+      "name": "Insulated Glazing Unit and Plaster with Wallpaper Backing",
+      "absorption_coefficient": 0.19
+    },
+    {
+      "name": "Frosted Glass and Concrete Block (Painted)",
+      "absorption_coefficient": 0.21
+    },
+    {
+      "name": "Glazed Ceramic Tile and Fiberglass Board",
+      "absorption_coefficient": 0.23
+    },
+    {
+      "name": "Double Pane Glass and Gypsum Board",
+      "absorption_coefficient": 0.25
+    },
+    {
+      "name": "Small Pane Glass and Concrete Block (Painted)",
+      "absorption_coefficient": 0.27
+    },
+    {
+      "name": "Single Pane Glass and Fiberglass Board",
+      "absorption_coefficient": 0.29
+    },
+    {
+      "name": "Glass Block and Unpainted Brick",
+      "absorption_coefficient": 0.31
+    },
+    {
+      "name": "Double Pane Glass and Plaster with Wallpaper Backing",
+      "absorption_coefficient": 0.33
+    },
+    {
+      "name": "Double Pane Glass and Acoustic Plaster",
+      "absorption_coefficient": 0.15
+    },
+    {
+      "name": "Glass Block and Plaster with Wallpaper Backing",
+      "absorption_coefficient": 0.17
+    },
+    {
+      "name": "Double Pane Glass and Wood Paneling",
+      "absorption_coefficient": 0.19
+    },
+    {
+      "name": "Glazed Ceramic Tile and Painted Brick",
+      "absorption_coefficient": 0.21
+    },
+    {
+      "name": "Double Pane Glass and Concrete Block (Painted)",
+      "absorption_coefficient": 0.23
+    },
+    {
+      "name": "Large Pane Glass and Plaster with Wallpaper Backing",
+      "absorption_coefficient": 0.25
+    },
+    {
+      "name": "Insulated Glazing Unit and Plaster on Masonry",
+      "absorption_coefficient": 0.27
+    },
+    {
+      "name": "Single Pane Glass and Wood Paneling",
+      "absorption_coefficient": 0.29
+    },
+    {
+      "name": "Single Pane Glass and Painted Brick",
+      "absorption_coefficient": 0.31
+    },
+    {
+      "name": "Glazed Ceramic Tile and Gypsum Board",
+      "absorption_coefficient": 0.33
+    },
+    {
+      "name": "Frosted Glass and Plaster on Masonry",
+      "absorption_coefficient": 0.15
+    },
+    {
+      "name": "Insulated Glazing Unit and Fiberglass Board",
+      "absorption_coefficient": 0.17
+    },
+    {
+      "name": "Double Pane Glass and Plaster on Masonry",
+      "absorption_coefficient": 0.19
+    },
+    {
+      "name": "Wired Glass and Gypsum Board",
+      "absorption_coefficient": 0.21
+    },
+    {
+      "name": "Double Pane Glass and Unpainted Brick",
+      "absorption_coefficient": 0.23
+    },
+    {
+      "name": "Laminated Glass and Acoustic Plaster",
+      "absorption_coefficient": 0.25
+    },
+    {
+      "name": "Glazed Ceramic Tile and Plaster on Masonry",
+      "absorption_coefficient": 0.27
+    },
+    {
+      "name": "Small Pane Glass and Plaster on Masonry",
+      "absorption_coefficient": 0.29
+    },
+    {
+      "name": "Laminated Glass and Plaster with Wallpaper Backing",
+      "absorption_coefficient": 0.31
+    },
+    {
+      "name": "Glass Block and Fiberglass Board",
+      "absorption_coefficient": 0.33
+    },
+    {
+      "name": "Insulated Glazing Unit and Gypsum Board",
+      "absorption_coefficient": 0.15
+    },
+    {
+      "name": "Large Pane Glass and Concrete Block (Painted)",
+      "absorption_coefficient": 0.17
+    },
+    {
+      "name": "Glass Block and Concrete Block (Painted)",
+      "absorption_coefficient": 0.19
+    },
+    {
+      "name": "Glazed Ceramic Tile and Plaster with Wallpaper Backing",
+      "absorption_coefficient": 0.21
+    },
+    {
+      "name": "Laminated Glass and Fiberglass Board",
+      "absorption_coefficient": 0.23
+    },
+    {
+      "name": "Laminated Glass and Unpainted Brick",
+      "absorption_coefficient": 0.25
+    },
+    {
+      "name": "Frosted Glass and Wood Paneling",
+      "absorption_coefficient": 0.27
+    },
+    {
+      "name": "Single Pane Glass and Plaster with Wallpaper Backing",
+      "absorption_coefficient": 0.29
+    },
+    {
+      "name": "Wired Glass and Acoustic Plaster",
+      "absorption_coefficient": 0.31
+    },
+    {
+      "name": "Small Pane Glass and Gypsum Board",
+      "absorption_coefficient": 0.33
+    },
+    {
+      "name": "Wired Glass and Plaster on Masonry",
+      "absorption_coefficient": 0.15
+    },
+    {
+      "name": "Glazed Ceramic Tile and Acoustic Plaster",
+      "absorption_coefficient": 0.17
+    },
+    {
+      "name": "Large Pane Glass and Wood Paneling",
+      "absorption_coefficient": 0.19
+    },
+    {
+      "name": "Laminated Glass and Gypsum Board",
+      "absorption_coefficient": 0.21
+    },
+    {
+      "name": "Single Pane Glass and Gypsum Board",
+      "absorption_coefficient": 0.23
+    },
+    {
+      "name": "Large Pane Glass and Unpainted Brick",
+      "absorption_coefficient": 0.25
+    },
+    {
+      "name": "Large Pane Glass and Plaster on Masonry",
+      "absorption_coefficient": 0.27
+    },
+    {
+      "name": "Large Pane Glass and Painted Brick",
+      "absorption_coefficient": 0.29
+    },
+    {
+      "name": "Wired Glass and Concrete Block (Painted)",
+      "absorption_coefficient": 0.31
+    },
+    {
+      "name": "Small Pane Glass and Acoustic Plaster",
+      "absorption_coefficient": 0.33
+    }
+  ],
+  "door_material": [
+    {
+      "name": "Double Pane Glass Door and Wood Paneling",
+      "absorption_coefficient": 0.15
+    },
+    {
+      "name": "Steel Door with Acoustic Treatment and Plaster with Wallpaper Backing",
+      "absorption_coefficient": 0.17
+    },
+    {
+      "name": "Steel Door with Acoustic Treatment and Concrete Block (Painted)",
+      "absorption_coefficient": 0.19
+    },
+    {
+      "name": "Laminated Glass Door and Concrete Block (Coarse)",
+      "absorption_coefficient": 0.21
+    },
+    {
+      "name": "Sliding Wood Door and Concrete Block (Painted)",
+      "absorption_coefficient": 0.23
+    },
+    {
+      "name": "Plywood Door and Gypsum Board",
+      "absorption_coefficient": 0.25
+    },
+    {
+      "name": "Steel Door with Acoustic Treatment and Wood Paneling",
+      "absorption_coefficient": 0.27
+    },
+    {
+      "name": "Double Pane Glass Door and Concrete Block (Painted)",
+      "absorption_coefficient": 0.29
+    },
+    {
+      "name": "Double Pane Glass Door and Plaster on Masonry",
+      "absorption_coefficient": 0.31
+    },
+    {
+      "name": "Hollow-Core Wood Door and Unpainted Brick",
+      "absorption_coefficient": 0.33
+    },
+    {
+      "name": "Laminated Glass Door and Painted Brick",
+      "absorption_coefficient": 0.15
+    },
+    {
+      "name": "Laminated Glass Door and Plaster on Masonry",
+      "absorption_coefficient": 0.17
+    },
+    {
+      "name": "Fire-Rated Door with Mineral Core and Wood Paneling",
+      "absorption_coefficient": 0.19
+    },
+    {
+      "name": "Laminated Glass Door and Acoustic Plaster",
+      "absorption_coefficient": 0.21
+    },
+    {
+      "name": "Double Pane Glass Door and Unpainted Brick",
+      "absorption_coefficient": 0.23
+    },
+    {
+      "name": "Laminated Glass Door and Fiberglass Board",
+      "absorption_coefficient": 0.25
+    },
+    {
+      "name": "Fire-Rated Door with Mineral Core and Concrete Block (Coarse)",
+      "absorption_coefficient": 0.27
+    },
+    {
+      "name": "Sliding Wood Door and Plaster with Wallpaper Backing",
+      "absorption_coefficient": 0.29
+    },
+    {
+      "name": "Steel Door with Acoustic Treatment and Unpainted Brick",
+      "absorption_coefficient": 0.31
+    },
+    {
+      "name": "Sliding Wood Door and Plaster on Masonry",
+      "absorption_coefficient": 0.33
+    },
+    {
+      "name": "Plywood Door and Painted Brick",
+      "absorption_coefficient": 0.15
+    },
+    {
+      "name": "Steel Door with Acoustic Treatment and Gypsum Board",
+      "absorption_coefficient": 0.17
+    },
+    {
+      "name": "Acoustic Door and Fiberglass Board",
+      "absorption_coefficient": 0.19
+    },
+    {
+      "name": "Hollow-Core Wood Door and Concrete Block (Coarse)",
+      "absorption_coefficient": 0.21
+    },
+    {
+      "name": "Fire-Rated Door with Mineral Core and Concrete Block (Painted)",
+      "absorption_coefficient": 0.23
+    },
+    {
+      "name": "Plywood Door and Wood Paneling",
+      "absorption_coefficient": 0.25
+    },
+    {
+      "name": "Acoustic Door and Plaster on Masonry",
+      "absorption_coefficient": 0.27
+    },
+    {
+      "name": "Acoustic Door and Plaster with Wallpaper Backing",
+      "absorption_coefficient": 0.29
+    },
+    {
+      "name": "Fire-Rated Door with Mineral Core and Plaster with Wallpaper Backing",
+      "absorption_coefficient": 0.31
+    },
+    {
+      "name": "Acoustic Door and Acoustic Plaster",
+      "absorption_coefficient": 0.33
+    },
+    {
+      "name": "Sliding Wood Door and Acoustic Plaster",
+      "absorption_coefficient": 0.15
+    },
+    {
+      "name": "Single Pane Glass Door and Concrete Block (Painted)",
+      "absorption_coefficient": 0.17
+    },
+    {
+      "name": "Solid Wood Door and Unpainted Brick",
+      "absorption_coefficient": 0.19
+    },
+    {
+      "name": "Hollow-Core Wood Door and Painted Brick",
+      "absorption_coefficient": 0.21
+    },
+    {
+      "name": "Plywood Door and Unpainted Brick",
+      "absorption_coefficient": 0.23
+    },
+    {
+      "name": "Steel Door with Acoustic Treatment and Concrete Block (Coarse)",
+      "absorption_coefficient": 0.25
+    },
+    {
+      "name": "Acoustic Door and Gypsum Board",
+      "absorption_coefficient": 0.27
+    },
+    {
+      "name": "Sliding Wood Door and Fiberglass Board",
+      "absorption_coefficient": 0.29
+    },
+    {
+      "name": "Solid Wood Door and Concrete Block (Coarse)",
+      "absorption_coefficient": 0.31
+    },
+    {
+      "name": "Plywood Door and Plaster on Masonry",
+      "absorption_coefficient": 0.33
+    },
+    {
+      "name": "Double Pane Glass Door and Concrete Block (Coarse)",
+      "absorption_coefficient": 0.15
+    },
+    {
+      "name": "Steel Door with Acoustic Treatment and Fiberglass Board",
+      "absorption_coefficient": 0.17
+    },
+    {
+      "name": "Steel Door with Acoustic Treatment and Acoustic Plaster",
+      "absorption_coefficient": 0.19
+    },
+    {
+      "name": "Plywood Door and Plaster with Wallpaper Backing",
+      "absorption_coefficient": 0.21
+    },
+    {
+      "name": "Single Pane Glass Door and Plaster on Masonry",
+      "absorption_coefficient": 0.23
+    },
+    {
+      "name": "Solid Wood Door and Gypsum Board",
+      "absorption_coefficient": 0.25
+    },
+    {
+      "name": "Single Pane Glass Door and Fiberglass Board",
+      "absorption_coefficient": 0.27
+    },
+    {
+      "name": "Double Pane Glass Door and Acoustic Plaster",
+      "absorption_coefficient": 0.29
+    },
+    {
+      "name": "Plywood Door and Concrete Block (Painted)",
+      "absorption_coefficient": 0.31
+    },
+    {
+      "name": "Fire-Rated Door with Mineral Core and Gypsum Board",
+      "absorption_coefficient": 0.33
+    },
+    {
+      "name": "Single Pane Glass Door and Painted Brick",
+      "absorption_coefficient": 0.15
+    },
+    {
+      "name": "Single Pane Glass Door and Plaster with Wallpaper Backing",
+      "absorption_coefficient": 0.17
+    },
+    {
+      "name": "Plywood Door and Fiberglass Board",
+      "absorption_coefficient": 0.19
+    },
+    {
+      "name": "Fire-Rated Door with Mineral Core and Acoustic Plaster",
+      "absorption_coefficient": 0.21
+    },
+    {
+      "name": "Sliding Wood Door and Gypsum Board",
+      "absorption_coefficient": 0.23
+    },
+    {
+      "name": "Solid Wood Door and Concrete Block (Painted)",
+      "absorption_coefficient": 0.25
+    },
+    {
+      "name": "Solid Wood Door and Wood Paneling",
+      "absorption_coefficient": 0.27
+    },
+    {
+      "name": "Single Pane Glass Door and Unpainted Brick",
+      "absorption_coefficient": 0.29
+    },
+    {
+      "name": "Laminated Glass Door and Unpainted Brick",
+      "absorption_coefficient": 0.31
+    },
+    {
+      "name": "Solid Wood Door and Fiberglass Board",
+      "absorption_coefficient": 0.33
+    },
+    {
+      "name": "Solid Wood Door and Acoustic Plaster",
+      "absorption_coefficient": 0.15
+    },
+    {
+      "name": "Hollow-Core Wood Door and Acoustic Plaster",
+      "absorption_coefficient": 0.17
+    },
+    {
+      "name": "Hollow-Core Wood Door and Wood Paneling",
+      "absorption_coefficient": 0.19
+    },
+    {
+      "name": "Sliding Wood Door and Unpainted Brick",
+      "absorption_coefficient": 0.21
+    },
+    {
+      "name": "Single Pane Glass Door and Wood Paneling",
+      "absorption_coefficient": 0.23
+    },
+    {
+      "name": "Hollow-Core Wood Door and Gypsum Board",
+      "absorption_coefficient": 0.25
+    },
+    {
+      "name": "Acoustic Door and Concrete Block (Painted)",
+      "absorption_coefficient": 0.27
+    },
+    {
+      "name": "Double Pane Glass Door and Painted Brick",
+      "absorption_coefficient": 0.29
+    },
+    {
+      "name": "Single Pane Glass Door and Acoustic Plaster",
+      "absorption_coefficient": 0.31
+    },
+    {
+      "name": "Solid Wood Door and Plaster on Masonry",
+      "absorption_coefficient": 0.33
+    },
+    {
+      "name": "Steel Door with Acoustic Treatment and Painted Brick",
+      "absorption_coefficient": 0.15
+    },
+    {
+      "name": "Single Pane Glass Door and Gypsum Board",
+      "absorption_coefficient": 0.17
+    },
+    {
+      "name": "Sliding Wood Door and Concrete Block (Coarse)",
+      "absorption_coefficient": 0.19
+    },
+    {
+      "name": "Fire-Rated Door with Mineral Core and Plaster on Masonry",
+      "absorption_coefficient": 0.21
+    },
+    {
+      "name": "Fire-Rated Door with Mineral Core and Fiberglass Board",
+      "absorption_coefficient": 0.23
+    },
+    {
+      "name": "Laminated Glass Door and Wood Paneling",
+      "absorption_coefficient": 0.25
+    },
+    {
+      "name": "Double Pane Glass Door and Plaster with Wallpaper Backing",
+      "absorption_coefficient": 0.27
+    },
+    {
+      "name": "Hollow-Core Wood Door and Concrete Block (Painted)",
+      "absorption_coefficient": 0.29
+    },
+    {
+      "name": "Solid Wood Door and Painted Brick",
+      "absorption_coefficient": 0.31
+    },
+    {
+      "name": "Acoustic Door and Painted Brick",
+      "absorption_coefficient": 0.33
+    },
+    {
+      "name": "Hollow-Core Wood Door and Plaster on Masonry",
+      "absorption_coefficient": 0.15
+    },
+    {
+      "name": "Acoustic Door and Wood Paneling",
+      "absorption_coefficient": 0.17
+    },
+    {
+      "name": "Acoustic Door and Concrete Block (Coarse)",
+      "absorption_coefficient": 0.19
+    },
+    {
+      "name": "Fire-Rated Door with Mineral Core and Unpainted Brick",
+      "absorption_coefficient": 0.21
+    },
+    {
+      "name": "Steel Door with Acoustic Treatment and Plaster on Masonry",
+      "absorption_coefficient": 0.23
+    },
+    {
+      "name": "Sliding Wood Door and Painted Brick",
+      "absorption_coefficient": 0.25
+    },
+    {
+      "name": "Single Pane Glass Door and Concrete Block (Coarse)",
+      "absorption_coefficient": 0.27
+    },
+    {
+      "name": "Sliding Wood Door and Wood Paneling",
+      "absorption_coefficient": 0.29
+    },
+    {
+      "name": "Solid Wood Door and Plaster with Wallpaper Backing",
+      "absorption_coefficient": 0.31
+    },
+    {
+      "name": "Laminated Glass Door and Concrete Block (Painted)",
+      "absorption_coefficient": 0.33
+    },
+    {
+      "name": "Laminated Glass Door and Plaster with Wallpaper Backing",
+      "absorption_coefficient": 0.15
+    },
+    {
+      "name": "Double Pane Glass Door and Gypsum Board",
+      "absorption_coefficient": 0.17
+    },
+    {
+      "name": "Plywood Door and Acoustic Plaster",
+      "absorption_coefficient": 0.19
+    },
+    {
+      "name": "Hollow-Core Wood Door and Fiberglass Board",
+      "absorption_coefficient": 0.21
+    },
+    {
+      "name": "Hollow-Core Wood Door and Plaster with Wallpaper Backing",
+      "absorption_coefficient": 0.23
+    },
+    {
+      "name": "Fire-Rated Door with Mineral Core and Painted Brick",
+      "absorption_coefficient": 0.25
+    },
+    {
+      "name": "Double Pane Glass Door and Fiberglass Board",
+      "absorption_coefficient": 0.27
+    },
+    {
+      "name": "Plywood Door and Concrete Block (Coarse)",
+      "absorption_coefficient": 0.29
+    },
+    {
+      "name": "Laminated Glass Door and Gypsum Board",
+      "absorption_coefficient": 0.31
+    },
+    {
+      "name": "Acoustic Door and Unpainted Brick",
+      "absorption_coefficient": 0.33
+    }
+  ],
+  "floor_material": [
+    {
+      "name": "Terrazzo",
+      "absorption_coefficient": 0.15
+    },
+    {
+      "name": "Medium Pile Carpet",
+      "absorption_coefficient": 0.17
+    },
+    {
+      "name": "Marble",
+      "absorption_coefficient": 0.19
+    },
+    {
+      "name": "Wood Parquet",
+      "absorption_coefficient": 0.21
+    },
+    {
+      "name": "Thin Carpet on Concrete",
+      "absorption_coefficient": 0.23
+    },
+    {
+      "name": "Thin Carpet on Wood",
+      "absorption_coefficient": 0.25
+    },
+    {
+      "name": "Cork Floor Tiles",
+      "absorption_coefficient": 0.27
+    },
+    {
+      "name": "Vinyl Tile",
+      "absorption_coefficient": 0.29
+    },
+    {
+      "name": "Wood Flooring on Joists",
+      "absorption_coefficient": 0.31
+    },
+    {
+      "name": "Thick Pile Carpet",
+      "absorption_coefficient": 0.33
+    }
+  ],
+  "ceiling_material": [
+    {
+      "name": "Sprayed Cellulose Fiber (75mm on Solid Backing)",
+      "absorption_coefficient": 0.15
+    },
+    {
+      "name": "Hardboard, 25% Perforated Over 50mm Mineral Wool",
+      "absorption_coefficient": 0.17
+    },
+    {
+      "name": "Plasterboard 10mm Thick, Perforated 8mm Diameter Holes with 25mm Bitumen-Bonded Fibreglass",
+      "absorption_coefficient": 0.19
+    },
+    {
+      "name": "Perforated Underside of Structural Steel Decking",
+      "absorption_coefficient": 0.21
+    },
+    {
+      "name": "Mineral Wool Tiles, Glued/Screwed to Soffit",
+      "absorption_coefficient": 0.23
+    },
+    {
+      "name": "Underlay in Perforated Metal Panels (25mm Batts)",
+      "absorption_coefficient": 0.25
+    },
+    {
+      "name": "Sprayed Cellulose Fiber (25mm on Solid Backing)",
+      "absorption_coefficient": 0.27
+    },
+    {
+      "name": "Gypsum Plaster Tiles, 17% Perforated, 22mm",
+      "absorption_coefficient": 0.29
+    },
+    {
+      "name": "Wood Panels, 18mm Alternate 15mm Slot & 35mm Wooden Slat with 25mm Rockwool Backing",
+      "absorption_coefficient": 0.31
+    },
+    {
+      "name": "Plywood, 5mm, on Battens with 50mm Airspace Filled with Glass Wool",
+      "absorption_coefficient": 0.33
+    },
+    {
+      "name": "Plywood 12mm Thick Perforated 5mm Diameter Holes with 60mm Thick Fibreglass Between Mounting Battens",
+      "absorption_coefficient": 0.15
+    },
+    {
+      "name": "0.8mm Perforated Metal Tiles with 25mm Thick Resin-Bonded Fibreglass Slab",
+      "absorption_coefficient": 0.17
+    },
+    {
+      "name": "100mm Woodwool Slabs on 25mm Cavity, Pre-Screeded Surface Facing Cavity",
+      "absorption_coefficient": 0.19
+    },
+    {
+      "name": "Plaster (Gypsum or Lime, on Masonry)",
+      "absorption_coefficient": 0.21
+    },
+    {
+      "name": "Plywood, 12mm, with 30mm Thick Fibreglass Backing Between 30mm Battens",
+      "absorption_coefficient": 0.23
+    },
+    {
+      "name": "Plasterboard 10mm Thick Backed with 25mm Thick Bitumen",
+      "absorption_coefficient": 0.25
+    },
+    {
+      "name": "Plywood 12mm Thick Perforated 5mm Diameter Holes with 60mm Deep Air Space Behind",
+      "absorption_coefficient": 0.27
+    },
+    {
+      "name": "Sprayed Cellulose Fiber (16mm on Solid Backing)",
+      "absorption_coefficient": 0.29
+    },
+    {
+      "name": "50mm Mineral Wool Behind 25% Open Area Perforated Steel",
+      "absorption_coefficient": 0.31
+    },
+    {
+      "name": "Metal Deck (Perforated Channels, 75mm Batts)",
+      "absorption_coefficient": 0.33
+    },
+    {
+      "name": "Wood Tongue-and-Groove Roof Decking",
+      "absorption_coefficient": 0.15
+    },
+    {
+      "name": "Metal Deck (Perforated Channels, 25mm Batts)",
+      "absorption_coefficient": 0.17
+    },
+    {
+      "name": "0.8mm Unperforated Metal Panels Backed with 25mm Thick Resin Bonded Fibreglass",
+      "absorption_coefficient": 0.19
+    },
+    {
+      "name": "100mm Woodwool Fixed Directly to Concrete, Pre-Screeded Surface Facing Backing",
+      "absorption_coefficient": 0.21
+    },
+    {
+      "name": "Sprayed Cellulose Fiber (25mm on Timber Lath)",
+      "absorption_coefficient": 0.23
+    },
+    {
+      "name": "Mineral Wool Tiles, 180mm Airspace",
+      "absorption_coefficient": 0.25
+    },
+    {
+      "name": "Plaster (Gypsum or Lime, Rough Finish or Timber Lath)",
+      "absorption_coefficient": 0.27
+    },
+    {
+      "name": "12% Perforated Plaster Tiles with Absorbent Felt, 200mm Ceiling Void",
+      "absorption_coefficient": 0.29
+    },
+    {
+      "name": "Metal Ceiling, 32.5% Perforated, Backed by 30mm Rockwool",
+      "absorption_coefficient": 0.31
+    },
+    {
+      "name": "75mm Woodwool Fixed Directly to Concrete, Pre-Screeded Surface Facing Backing",
+      "absorption_coefficient": 0.33
+    },
+    {
+      "name": "50mm Woodwool Slabs on 25mm Cavity, Pre-Screeded Surface Facing Cavity",
+      "absorption_coefficient": 0.15
+    },
+    {
+      "name": "Plaster Decorative Panels, Ceilings",
+      "absorption_coefficient": 0.17
+    },
+    {
+      "name": "Sprayed Cellulose Fiber (32mm on Solid Backing)",
+      "absorption_coefficient": 0.19
+    },
+    {
+      "name": "Plasterboard (12mm) in Suspended Ceiling Grid",
+      "absorption_coefficient": 0.21
+    }
+  ]
+}

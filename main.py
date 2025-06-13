@@ -8,7 +8,7 @@ from llm_calls import extract_variables, build_answer
 from sql_calls import query_or_recommend
 
 # === CONFIG: Choose input mode ===
-use_structured_input = True  # ⬅️ Set to True to test structured inputs directly
+use_structured_input = True  # Set False to test free-form LLM input
 
 # === INPUT BLOCK ===
 if use_structured_input:
@@ -43,8 +43,6 @@ else:
         sys.exit(1)
 
     print("✅ Extracted input:", user_input)
-
-    # Add default activity if not mentioned
     user_input.setdefault("activity", "Living")
 
 # === Acoustic Evaluation ===
@@ -55,12 +53,12 @@ except Exception as e:
     print(f"❌ Acoustic evaluation failed: {e}")
     sys.exit(1)
 
-# === Print Raw Output ===
+# === Raw Output ===
 print("\n📦 Raw Output:")
 for key, val in result.items():
     print(f"{key}: {val}")
 
-# === Generate LLM Summary ===
+# === LLM Summary Output ===
 print("\n🧠 Generating summary...")
 try:
     summary = build_answer(user_question, result)

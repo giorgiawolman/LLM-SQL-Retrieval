@@ -1,5 +1,4 @@
 from server.config import client, completion_model
-import re
 
 # 🔹 Extract structured variables from free-form question
 def extract_variables(user_question: str) -> dict:
@@ -21,7 +20,7 @@ Extract ONLY these fields if mentioned:
 - Floor_Level (numeric)
 - activity (e.g. Living, Sleeping, Working)
 
-Return a Python dictionary (no explanation).
+Return a valid Python dictionary (no explanation).
 If a field is missing, omit it.
 """
             },
@@ -42,14 +41,12 @@ If a field is missing, omit it.
 
 # 🔹 Summarize acoustic score + compliance + recommendations
 def build_answer(user_question: str, result: dict) -> str:
-    score = result.get("comfort_score")
+    score = result.get("comfort_score", "N/A")
     source = result.get("source", "N/A")
     compliance = result.get("compliance", {})
     recommendations = result.get("recommendations", {})
-    improved_score = result.get("improved_score", None)
-
-    best_materials = result.get("best_materials", {})
-    best_score = result.get("best_score", None)
+    improved_score = result.get("improved_score", "N/A")
+    material_swap = result.get("material_swap", {})
 
     summary_prompt = f"""
 User Question:
@@ -59,13 +56,15 @@ User Question:
 - Comfort Score: {score}
 - Source: {source}
 - Compliance: {compliance.get("status")} — {compliance.get("reason")}
+- LAeq: {compliance.get("LAeq")}
+- RT60: {compliance.get("RT60")}
 
 🛠 Recommendations:
 {recommendations if recommendations else "None needed"}
 
 💡 Material Upgrade Suggestions:
-{best_materials if best_materials else "No upgrades suggested"}
-Improved Score: {round(best_score, 3) if best_score else "N/A"}
+{material_swap if material_swap else "No material change recommended"}
+Improved Score: {round(improved_score, 3) if improved_score and improved_score != 'N/A' else "N/A"}
 """
 
     response = client.chat.completions.create(
@@ -74,14 +73,14 @@ Improved Score: {round(best_score, 3) if best_score else "N/A"}
             {
                 "role": "system",
                 "content": """
-You summarize acoustic comfort evaluations for architects and sustainability consultants.
+You summarize acoustic comfort evaluations clearly for architects and sustainability consultants.
 
 Instructions:
-- Do not repeat sentences.
-- Clearly state compliance.
-- If material upgrades are provided, summarize them usefully.
-- Use bullets for clarity if needed.
-- If compliant, avoid unnecessary suggestions.
+- Do not repeat content.
+- Clearly state whether the result is compliant.
+- Mention original and improved score (if applicable).
+- List upgraded materials if available.
+- Avoid suggesting upgrades if already compliant.
 """
             },
             {

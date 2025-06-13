@@ -30,7 +30,7 @@ def query_or_recommend(user_input):
     if "Zone" in user_input:
         conditions.append(f"LOWER(zone_string) = '{user_input['Zone'].lower()}'")
 
-    # Try full match of both materials first
+    # Flexible matching of materials
     if "wall_material" in user_input and "window_material" in user_input:
         combo = f"{user_input['window_material']} and {user_input['wall_material']}".lower()
         conditions.append(f"LOWER(element_materials_string) LIKE '%{combo}%'")
@@ -43,7 +43,6 @@ def query_or_recommend(user_input):
     if "Floor_Level" in user_input:
         floor_height = round(user_input["Floor_Level"] * 3.0, 2)
         if "floor_height_m" in columns:
-            # Add tolerance to avoid float mismatch
             conditions.append(f"ABS(floor_height_m - {floor_height}) < 0.1")
         elif "floor_level" in columns:
             conditions.append(f"floor_level = {user_input['Floor_Level']}")
@@ -65,8 +64,12 @@ def query_or_recommend(user_input):
             return {
                 "comfort_score": round(result.iloc[0]["comfort_index_float"], 3),
                 "source": "SQL Match",
-                "compliance": {"status": "compliant", "reason": "Matched from database"},
+                "compliance": {
+                    "status": "compliant",
+                    "reason": "Matched from database"
+                },
                 "recommendations": {},
+                "material_swap": {},
                 "improved_score": None
             }
         else:
